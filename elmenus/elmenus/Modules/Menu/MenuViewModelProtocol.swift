@@ -8,14 +8,16 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 protocol MenuViewModelInput {
     var loaded: PublishSubject<Void> {get}
+    var loadNextTags: PublishSubject<Void> { get }
 }
 
 protocol MenuViewModelOutput {
-    var tagsData: Observable<[TagViewModel]> { get }
-    var itemsData: Observable<[ItemViewModel]> { get }
+    var tagsData: BehaviorRelay<[TagViewModel]> { get }
+    var itemsData: BehaviorRelay<[ItemViewModel]> { get }
 }
 
 protocol MenuViewModelType {

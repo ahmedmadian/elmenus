@@ -128,6 +128,7 @@
 		DE591B8723FA100500E68BA7 /* elmenus */ = {
 			isa = PBXGroup;
 			children = (
+				DE591BF023FB058900E68BA7 /* SupportingFiles */,
 				DE591BC123FAACD800E68BA7 /* Coordinator */,
 				DE591BD023FAAF4300E68BA7 /* Library */,
 				DE591BC723FAAE1200E68BA7 /* Modules */,
@@ -303,6 +304,13 @@
 			path = Temp;
 			sourceTree = "<group>";
 		};
+		DE591BF023FB058900E68BA7 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		FF40E4F93BAB4B66AE381BAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +353,7 @@
 				TargetAttributes = {
 					DE591B8423FA100500E68BA7 = {
 						CreatedOnToolsVersion = 11.1;
+						LastSwiftMigration = 1110;
 					};
 				};
 			};
@@ -601,6 +610,7 @@
 			baseConfigurationReference = CB1CA6663338A4BACF3DFAE5 /* Pods-elmenus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = elmenus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -609,6 +619,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.madian.elmenus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -619,6 +630,7 @@
 			baseConfigurationReference = B8FDB06EF1727B77BB2C70A0 /* Pods-elmenus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = elmenus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

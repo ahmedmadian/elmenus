@@ -11,39 +11,60 @@ import RxSwift
 import RxCocoa
 
 class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput {
- 
-    
     
     //MARK:-  Input
     var loaded: PublishSubject<Void>
+    var loadNextTags: PublishSubject<Void>
     
     //MARK:- Output
-    var tagsData: Observable<[TagViewModel]>
-    var itemsData: Observable<[ItemViewModel]>
+    var tagsData: BehaviorRelay<[TagViewModel]>
+    var itemsData: BehaviorRelay<[ItemViewModel]>
     
     //MARK: Fields
     private let tagsRepo: TagRepositoryProtocol
     private let itemsRepo: ItemRepositoryProtocol
+  
+    let currentPage = BehaviorRelay<Int>(value: 0)
 
     init(tagsRepo: TagRepositoryProtocol, itemsRepo: ItemRepositoryProtocol) {
         self.tagsRepo = tagsRepo
         self.itemsRepo = itemsRepo
         
-        self.loaded = PublishSubject<Void>().asObserver()
+        /// Used to start load when view load
+        self.loaded = PublishSubject<Void>()
         
-        let loadedTags = BehaviorRelay<[TagViewModel]>(value: [])
-        tagsData = loadedTags.asObservable()
+        /// Used to fetch next data page
+        self.loadNextTags =  PublishSubject<Void>()
         
-        let loadedItems =  BehaviorRelay<[ItemViewModel]>(value: [])
-        itemsData = loadedItems.asObservable()
+        tagsData = BehaviorRelay<[TagViewModel]>(value: [])
+        itemsData = BehaviorRelay<[ItemViewModel]>(value: [])
         
-        self.tagsData = loadedTags.flatMapLatest { _ -> Observable<[TagViewModel]> in
-            return self.tagsRepo.fetchTags(for: 1).map { $0.map { TagViewModel(with: $0) }}
+        let moreTags = loadNextTags.flatMapLatest { _ -> Observable<[TagViewModel]> in
+            self.currentPage.accept(self.currentPage.value + 1)
+             return self.tagsRepo.fetchTags(for: self.currentPage.value + 1)
+                .map { $0.map { TagViewModel(with: $0) }}
         }
         
-        self.itemsData = loadedItems.flatMapLatest { _ -> Observable<[ItemViewModel]> in
+        let loadTags = loaded.flatMapLatest { _ -> Observable<[TagViewModel]> in
+            return self.tagsRepo.fetchTags(for: self.currentPage.value + 1).map { $0.map { TagViewModel(with: $0) }}
+        }
+        
+        let loadItems = loaded.flatMapLatest { _ -> Observable<[ItemViewModel]> in
             return self.itemsRepo.fetchItems(for: "2Desert").map { $0.map { ItemViewModel(with: $0) }}
         }
+        
+        _ = loadTags.subscribe(onNext: { (tags) in
+            self.tagsData.accept(self.tagsData.value + tags)
+        })
+        
+        _ = moreTags.subscribe(onNext: { (tags) in
+            self.tagsData.accept(self.tagsData.value + tags)
+        })
+        
+        _ = loadItems.subscribe(onNext: { (items) in
+            self.itemsData.accept(self.itemsData.value + items)
+        })
+        
     }
     
 }
