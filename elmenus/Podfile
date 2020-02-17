@@ -5,6 +5,8 @@ def swiftPods
   pod 'Alamofire'
   pod 'XCoordinator'
   pod 'Kingfisher'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 end
 
 target 'elmenus' do

@@ -7,11 +7,15 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol MenuViewModelInput {
+    var loaded: PublishSubject<Void> {get}
 }
 
 protocol MenuViewModelOutput {
+    var tagsData: Observable<[TagViewModel]> { get }
+    var itemsData: Observable<[ItemViewModel]> { get }
 }
 
 protocol MenuViewModelType {

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class MenuViewController: UIViewController, BindableType {
     
@@ -17,7 +19,9 @@ class MenuViewController: UIViewController, BindableType {
 
     // MARK: - Properties
     var viewModel: MenuViewModelType!
+    private let disposeBag = DisposeBag()
     
+    // MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         congifTableView()
@@ -25,6 +29,24 @@ class MenuViewController: UIViewController, BindableType {
     }
     
     func bindViewModel() {
+        
+        rx.sentMessage(#selector(UIViewController.viewDidAppear(_:)))
+        .take(1)
+        .map { _ in }
+        .bind(to: viewModel.input.loaded).disposed(by: disposeBag)
+        
+        
+        viewModel.output.itemsData
+            .observeOn(MainScheduler.instance)
+            .bind(to: tableView.rx.items(cellIdentifier: ItemCell.typeName, cellType: ItemCell.self)) { item, data, itemCell in
+                itemCell.configCellAppearnce(with: data)
+        }.disposed(by: disposeBag)
+        
+        viewModel.output.tagsData
+            .observeOn(MainScheduler.instance)
+            .bind(to: collectionView.rx.items(cellIdentifier: TagCell.typeName, cellType: TagCell.self)) { item, data, cell in
+                cell.configCellAppearnce(with: data)
+        }.disposed(by: disposeBag)
     }
     
     private func congifTableView() {
