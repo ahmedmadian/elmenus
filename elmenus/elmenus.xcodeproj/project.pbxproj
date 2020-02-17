@@ -37,6 +37,7 @@
 		DE591BE323FABA1000E68BA7 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BE123FABA1000E68BA7 /* ItemCell.swift */; };
 		DE591BE423FABA1000E68BA7 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE591BE223FABA1000E68BA7 /* ItemCell.xib */; };
 		DE591BE623FABBF500E68BA7 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BE523FABBF500E68BA7 /* ItemViewModel.swift */; };
+		DE591BE823FABD6700E68BA7 /* UIView+typeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BE723FABD6700E68BA7 /* UIView+typeName.swift */; };
 		F808ABACDFFC9FBBAC253274 /* Pods_elmenus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE0A61423E5E7E41712C5538 /* Pods_elmenus.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		DE591BE123FABA1000E68BA7 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		DE591BE223FABA1000E68BA7 /* ItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
 		DE591BE523FABBF500E68BA7 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
+		DE591BE723FABD6700E68BA7 /* UIView+typeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+typeName.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +253,7 @@
 			children = (
 				DE591BD123FAAF4E00E68BA7 /* BindableType.swift */,
 				DE591BD323FAB0AB00E68BA7 /* Storyboards.swift */,
+				DE591BE723FABD6700E68BA7 /* UIView+typeName.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				DE591BCB23FAAE7000E68BA7 /* MenuViewController.swift in Sources */,
 				DE591BB523FA162100E68BA7 /* ElmenusEndPoints.swift in Sources */,
 				DE591BC623FAAD3300E68BA7 /* AppStartupRoute.swift in Sources */,
+				DE591BE823FABD6700E68BA7 /* UIView+typeName.swift in Sources */,
 				DE591BC323FAAD0400E68BA7 /* AppStartupCoordinator.swift in Sources */,
 				DE591BD223FAAF4E00E68BA7 /* BindableType.swift in Sources */,
 				DE591BE623FABBF500E68BA7 /* ItemViewModel.swift in Sources */,
