@@ -14,6 +14,7 @@ class ItemCell: UITableViewCell {
     // MARK: Outlet
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var titlLabel: UILabel!
+    @IBOutlet weak var labelContainerView: UIView!
     
     
     // MARK: - Methods
@@ -23,6 +24,8 @@ class ItemCell: UITableViewCell {
             .transition(.fade(1)),
             .cacheOriginalImage,
         ])
+        itemImageView.makeRoundedCorners(with: itemImageView.frame.height / 8)
+        labelContainerView.makeRoundedCorners(with: labelContainerView.frame.height / 8)
         titlLabel.text = viewModel.name
     }
     

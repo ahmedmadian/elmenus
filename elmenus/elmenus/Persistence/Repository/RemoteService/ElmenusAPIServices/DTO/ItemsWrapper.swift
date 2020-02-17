@@ -1,5 +1,5 @@
 //
-//  TagsWrapper.swift
+//  ItemsWrapper.swift
 //  elmenus
 //
 //  Created by Ahmed Madian on 2/17/20.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct TagsWrapper : Codable {
-    let tags : [Tag]
+struct ItemsWrapper : Codable {
+    let items : [Item]
 
     enum CodingKeys: String, CodingKey {
-        case tags = "tags"
+        case items = "items"
     }
 }

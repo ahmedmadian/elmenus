@@ -26,6 +26,7 @@ class MenuViewController: UIViewController, BindableType {
         super.viewDidLoad()
         congifTableView()
         configureCollectionView()
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     func bindViewModel() {
@@ -53,7 +54,7 @@ class MenuViewController: UIViewController, BindableType {
         let itemNib = UINib(nibName: ItemCell.typeName, bundle: nil)
         tableView.register(itemNib, forCellReuseIdentifier: ItemCell.typeName)
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 350
+        tableView.estimatedRowHeight = 200
     }
     
     private func registerCell() {
@@ -65,7 +66,7 @@ class MenuViewController: UIViewController, BindableType {
         registerCell()
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        let itemWidth = collectionView.bounds.width/2 - 20
+        let itemWidth = collectionView.bounds.width/4
         let itemHeight = collectionView.bounds.height
         flowLayout.itemSize = CGSize(width: itemWidth, height: itemHeight)
         flowLayout.minimumInteritemSpacing = 10

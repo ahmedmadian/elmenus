@@ -38,6 +38,9 @@
 		DE591BE423FABA1000E68BA7 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE591BE223FABA1000E68BA7 /* ItemCell.xib */; };
 		DE591BE623FABBF500E68BA7 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BE523FABBF500E68BA7 /* ItemViewModel.swift */; };
 		DE591BE823FABD6700E68BA7 /* UIView+typeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BE723FABD6700E68BA7 /* UIView+typeName.swift */; };
+		DE591BEA23FAD02E00E68BA7 /* ItemsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BE923FAD02E00E68BA7 /* ItemsWrapper.swift */; };
+		DE591BEC23FAD8A300E68BA7 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BEB23FAD8A300E68BA7 /* Temp.swift */; };
+		DE591BEF23FAD8D300E68BA7 /* TempData.json in Resources */ = {isa = PBXBuildFile; fileRef = DE591BEE23FAD8D300E68BA7 /* TempData.json */; };
 		F808ABACDFFC9FBBAC253274 /* Pods_elmenus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE0A61423E5E7E41712C5538 /* Pods_elmenus.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +81,9 @@
 		DE591BE223FABA1000E68BA7 /* ItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
 		DE591BE523FABBF500E68BA7 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		DE591BE723FABD6700E68BA7 /* UIView+typeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+typeName.swift"; sourceTree = "<group>"; };
+		DE591BE923FAD02E00E68BA7 /* ItemsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsWrapper.swift; sourceTree = "<group>"; };
+		DE591BEB23FAD8A300E68BA7 /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
+		DE591BEE23FAD8D300E68BA7 /* TempData.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = TempData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +179,7 @@
 				DE591BAD23FA131E00E68BA7 /* Endpointed.swift */,
 				DE591BAF23FA135300E68BA7 /* HTTPMethod+HTTPSchema.swift */,
 				DE591BB123FA14F600E68BA7 /* RemoteServiceError.swift */,
+				DE591BED23FAD8B900E68BA7 /* Temp */,
 			);
 			path = RemoteService;
 			sourceTree = "<group>";
@@ -207,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				DE591BBC23FA265800E68BA7 /* TagsWrapper.swift */,
+				DE591BE923FAD02E00E68BA7 /* ItemsWrapper.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -286,6 +294,15 @@
 			path = ItemCell;
 			sourceTree = "<group>";
 		};
+		DE591BED23FAD8B900E68BA7 /* Temp */ = {
+			isa = PBXGroup;
+			children = (
+				DE591BEB23FAD8A300E68BA7 /* Temp.swift */,
+				DE591BEE23FAD8D300E68BA7 /* TempData.json */,
+			);
+			path = Temp;
+			sourceTree = "<group>";
+		};
 		FF40E4F93BAB4B66AE381BAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +375,7 @@
 				DE591B9523FA100600E68BA7 /* LaunchScreen.storyboard in Resources */,
 				DE591BE423FABA1000E68BA7 /* ItemCell.xib in Resources */,
 				DE591B9223FA100600E68BA7 /* Assets.xcassets in Resources */,
+				DE591BEF23FAD8D300E68BA7 /* TempData.json in Resources */,
 				DE591B9023FA100500E68BA7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,9 +436,11 @@
 				DE591BC023FA2A3500E68BA7 /* ItemsRemoteService.swift in Sources */,
 				DE591BCD23FAAE8000E68BA7 /* MenuViewModel.swift in Sources */,
 				DE591B9F23FA10B900E68BA7 /* Tag.swift in Sources */,
+				DE591BEC23FAD8A300E68BA7 /* Temp.swift in Sources */,
 				DE591BB023FA135300E68BA7 /* HTTPMethod+HTTPSchema.swift in Sources */,
 				DE591BE323FABA1000E68BA7 /* ItemCell.swift in Sources */,
 				DE591B8923FA100500E68BA7 /* AppDelegate.swift in Sources */,
+				DE591BEA23FAD02E00E68BA7 /* ItemsWrapper.swift in Sources */,
 				DE591BCF23FAAEA100E68BA7 /* MenuViewModelProtocol.swift in Sources */,
 				DE591BA523FA118800E68BA7 /* TagRepository.swift in Sources */,
 				DE591BAC23FA12D200E68BA7 /* RemoteServiceProtocol.swift in Sources */,

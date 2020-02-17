@@ -12,4 +12,8 @@ extension UIView {
     static var typeName: String {
         return String(describing: self)
     }
+    
+    func makeRoundedCorners(with avg: CGFloat) {
+        layer.cornerRadius = self.frame.height / avg
+    }
 }

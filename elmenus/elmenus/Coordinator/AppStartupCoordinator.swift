@@ -20,7 +20,9 @@ class AppStartupCoordinator: NavigationCoordinator<AppStartupRoute> {
         switch route {
        
         case .menu:
-            let viewModel = MenuViewModel()
+            let tagRepo = TagRepository()
+            let itemRepo = ItemRepository()
+            let viewModel = MenuViewModel(tagsRepo: tagRepo, itemsRepo: itemRepo)
             let controller: MenuViewController  = Storyboards.main.instantiate()!
             controller.bind(to: viewModel)
             return .push(controller)

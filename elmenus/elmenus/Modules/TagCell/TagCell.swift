@@ -13,6 +13,7 @@ class TagCell: UICollectionViewCell {
 
     // MARK: - Outlets
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var borderView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
 
@@ -23,6 +24,9 @@ class TagCell: UICollectionViewCell {
             .transition(.fade(1)),
             .cacheOriginalImage,
         ])
+        containerView.makeRoundedCorners(with: containerView.frame.height / 8)
+        borderView.makeRoundedCorners(with: borderView.frame.height/8)
+        imageView.makeRoundedCorners(with: imageView.frame.height / 8)
         titleLabel.text = viewModel.title
     }
 }

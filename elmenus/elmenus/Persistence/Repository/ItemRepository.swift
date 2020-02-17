@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol ItemRepositoryProtocol {
     func fetchItems(for tagName: String, completion: @escaping (([Item]?), Error?) -> ())
+     func fetchItems(for tagName: String) -> Observable<[Item]>
 }
 
 class ItemRepository: ItemRepositoryProtocol {
@@ -20,6 +22,12 @@ class ItemRepository: ItemRepositoryProtocol {
     // MARK:- Initializers
     init(remoteService: ItemsRemoteServiceProtocol = ItemsRemoteService.shared) {
         self.remoteService = remoteService
+    }
+    
+    func fetchItems(for tagName: String) -> Observable<[Item]> {
+//        let endPoint = ElmenusEndPoints.items
+//        return remoteService.fetchItems(with: endPoint, params: tagName)
+        return TempDataSource.shared.fetchItems()
     }
     
     func fetchItems(for tagName: String, completion: @escaping (([Item]?), Error?) -> ()) {
