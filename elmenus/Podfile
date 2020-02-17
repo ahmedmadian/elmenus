@@ -1,0 +1,11 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+def swiftPods
+  pod 'Alamofire'
+end
+
+target 'elmenus' do
+  use_frameworks!
+  swiftPods
+end

@@ -1,5 +1,5 @@
 //
-//  Tag.swift
+//  TagsWrapper.swift
 //  elmenus
 //
 //  Created by Ahmed Madian on 2/17/20.
@@ -8,13 +8,10 @@
 
 import Foundation
 
-struct Tag : Codable {
-    let tagName : String
-    let photoURL : String
+struct TagsWrapper : Codable {
+    let tags : [Tag]?
 
     enum CodingKeys: String, CodingKey {
-        case tagName = "tagName"
-        case photoURL = "photoURL"
+        case tags = "tags"
     }
-
 }

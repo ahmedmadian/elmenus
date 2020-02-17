@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Items : Codable {
-    let id : Int?
-    let name : String?
-    let photoUrl : String?
-    let description : String?
+struct Item : Codable {
+    let id : Int
+    let name : String
+    let photoUrl : String
+    let description : String
 
     enum CodingKeys: String, CodingKey {
         case id = "id"

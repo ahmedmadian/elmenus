@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,9 +15,24 @@
 		DE591B9523FA100600E68BA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE591B9323FA100600E68BA7 /* LaunchScreen.storyboard */; };
 		DE591B9F23FA10B900E68BA7 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591B9E23FA10B900E68BA7 /* Tag.swift */; };
 		DE591BA123FA10E600E68BA7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BA023FA10E600E68BA7 /* Item.swift */; };
+		DE591BA523FA118800E68BA7 /* TagRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BA423FA118800E68BA7 /* TagRepository.swift */; };
+		DE591BA823FA119B00E68BA7 /* ItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BA723FA119B00E68BA7 /* ItemRepository.swift */; };
+		DE591BAC23FA12D200E68BA7 /* RemoteServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BAB23FA12D200E68BA7 /* RemoteServiceProtocol.swift */; };
+		DE591BAE23FA131E00E68BA7 /* Endpointed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BAD23FA131E00E68BA7 /* Endpointed.swift */; };
+		DE591BB023FA135300E68BA7 /* HTTPMethod+HTTPSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BAF23FA135300E68BA7 /* HTTPMethod+HTTPSchema.swift */; };
+		DE591BB223FA14F600E68BA7 /* RemoteServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BB123FA14F600E68BA7 /* RemoteServiceError.swift */; };
+		DE591BB523FA162100E68BA7 /* ElmenusEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BB423FA162100E68BA7 /* ElmenusEndPoints.swift */; };
+		DE591BB823FA1DA800E68BA7 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BB723FA1DA800E68BA7 /* AppConstants.swift */; };
+		DE591BBA23FA24EC00E68BA7 /* TagsRemoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BB923FA24EC00E68BA7 /* TagsRemoteService.swift */; };
+		DE591BBD23FA265800E68BA7 /* TagsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BBC23FA265800E68BA7 /* TagsWrapper.swift */; };
+		DE591BC023FA2A3500E68BA7 /* ItemsRemoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BBF23FA2A3500E68BA7 /* ItemsRemoteService.swift */; };
+		F808ABACDFFC9FBBAC253274 /* Pods_elmenus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE0A61423E5E7E41712C5538 /* Pods_elmenus.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE0A61423E5E7E41712C5538 /* Pods_elmenus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_elmenus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8FDB06EF1727B77BB2C70A0 /* Pods-elmenus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-elmenus.release.xcconfig"; path = "Target Support Files/Pods-elmenus/Pods-elmenus.release.xcconfig"; sourceTree = "<group>"; };
+		CB1CA6663338A4BACF3DFAE5 /* Pods-elmenus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-elmenus.debug.xcconfig"; path = "Target Support Files/Pods-elmenus/Pods-elmenus.debug.xcconfig"; sourceTree = "<group>"; };
 		DE591B8523FA100500E68BA7 /* elmenus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = elmenus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE591B8823FA100500E68BA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE591B8A23FA100500E68BA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +43,17 @@
 		DE591B9623FA100600E68BA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE591B9E23FA10B900E68BA7 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		DE591BA023FA10E600E68BA7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		DE591BA423FA118800E68BA7 /* TagRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagRepository.swift; sourceTree = "<group>"; };
+		DE591BA723FA119B00E68BA7 /* ItemRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRepository.swift; sourceTree = "<group>"; };
+		DE591BAB23FA12D200E68BA7 /* RemoteServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteServiceProtocol.swift; sourceTree = "<group>"; };
+		DE591BAD23FA131E00E68BA7 /* Endpointed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpointed.swift; sourceTree = "<group>"; };
+		DE591BAF23FA135300E68BA7 /* HTTPMethod+HTTPSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPMethod+HTTPSchema.swift"; sourceTree = "<group>"; };
+		DE591BB123FA14F600E68BA7 /* RemoteServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteServiceError.swift; sourceTree = "<group>"; };
+		DE591BB423FA162100E68BA7 /* ElmenusEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElmenusEndPoints.swift; sourceTree = "<group>"; };
+		DE591BB723FA1DA800E68BA7 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		DE591BB923FA24EC00E68BA7 /* TagsRemoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsRemoteService.swift; sourceTree = "<group>"; };
+		DE591BBC23FA265800E68BA7 /* TagsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsWrapper.swift; sourceTree = "<group>"; };
+		DE591BBF23FA2A3500E68BA7 /* ItemsRemoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsRemoteService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +61,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F808ABACDFFC9FBBAC253274 /* Pods_elmenus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D6D7C31404DE76118D128CBA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CB1CA6663338A4BACF3DFAE5 /* Pods-elmenus.debug.xcconfig */,
+				B8FDB06EF1727B77BB2C70A0 /* Pods-elmenus.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DE591B7C23FA100400E68BA7 = {
 			isa = PBXGroup;
 			children = (
 				DE591B8723FA100500E68BA7 /* elmenus */,
 				DE591B8623FA100500E68BA7 /* Products */,
+				D6D7C31404DE76118D128CBA /* Pods */,
+				FF40E4F93BAB4B66AE381BAF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +98,8 @@
 		DE591B8723FA100500E68BA7 /* elmenus */ = {
 			isa = PBXGroup;
 			children = (
+				DE591BB623FA1D9900E68BA7 /* Application */,
+				DE591BA223FA115000E68BA7 /* Persistence */,
 				DE591B9D23FA109700E68BA7 /* Model */,
 				DE591B8823FA100500E68BA7 /* AppDelegate.swift */,
 				DE591B8A23FA100500E68BA7 /* SceneDelegate.swift */,
@@ -81,6 +121,79 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		DE591BA223FA115000E68BA7 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				DE591BA323FA117200E68BA7 /* Repository */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		DE591BA323FA117200E68BA7 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				DE591BA723FA119B00E68BA7 /* ItemRepository.swift */,
+				DE591BA423FA118800E68BA7 /* TagRepository.swift */,
+				DE591BA923FA11E500E68BA7 /* RemoteService */,
+				DE591BAA23FA11EE00E68BA7 /* LocalService */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		DE591BA923FA11E500E68BA7 /* RemoteService */ = {
+			isa = PBXGroup;
+			children = (
+				DE591BB323FA15F400E68BA7 /* ElmenusAPIServices */,
+				DE591BAB23FA12D200E68BA7 /* RemoteServiceProtocol.swift */,
+				DE591BAD23FA131E00E68BA7 /* Endpointed.swift */,
+				DE591BAF23FA135300E68BA7 /* HTTPMethod+HTTPSchema.swift */,
+				DE591BB123FA14F600E68BA7 /* RemoteServiceError.swift */,
+			);
+			path = RemoteService;
+			sourceTree = "<group>";
+		};
+		DE591BAA23FA11EE00E68BA7 /* LocalService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LocalService;
+			sourceTree = "<group>";
+		};
+		DE591BB323FA15F400E68BA7 /* ElmenusAPIServices */ = {
+			isa = PBXGroup;
+			children = (
+				DE591BBB23FA263D00E68BA7 /* DTO */,
+				DE591BB423FA162100E68BA7 /* ElmenusEndPoints.swift */,
+				DE591BB923FA24EC00E68BA7 /* TagsRemoteService.swift */,
+				DE591BBF23FA2A3500E68BA7 /* ItemsRemoteService.swift */,
+			);
+			path = ElmenusAPIServices;
+			sourceTree = "<group>";
+		};
+		DE591BB623FA1D9900E68BA7 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DE591BB723FA1DA800E68BA7 /* AppConstants.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DE591BBB23FA263D00E68BA7 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				DE591BBC23FA265800E68BA7 /* TagsWrapper.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		FF40E4F93BAB4B66AE381BAF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE0A61423E5E7E41712C5538 /* Pods_elmenus.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -88,9 +201,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE591B9923FA100600E68BA7 /* Build configuration list for PBXNativeTarget "elmenus" */;
 			buildPhases = (
+				98D8423C712160879C97DF4C /* [CP] Check Pods Manifest.lock */,
 				DE591B8123FA100500E68BA7 /* Sources */,
 				DE591B8223FA100500E68BA7 /* Frameworks */,
 				DE591B8323FA100500E68BA7 /* Resources */,
+				45E624F30E893904AF67DF05 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -147,16 +262,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		45E624F30E893904AF67DF05 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-elmenus/Pods-elmenus-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-elmenus/Pods-elmenus-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-elmenus/Pods-elmenus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98D8423C712160879C97DF4C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-elmenus-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DE591B8123FA100500E68BA7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				DE591BA123FA10E600E68BA7 /* Item.swift in Sources */,
+				DE591BAE23FA131E00E68BA7 /* Endpointed.swift in Sources */,
+				DE591BC023FA2A3500E68BA7 /* ItemsRemoteService.swift in Sources */,
 				DE591B9F23FA10B900E68BA7 /* Tag.swift in Sources */,
+				DE591BB023FA135300E68BA7 /* HTTPMethod+HTTPSchema.swift in Sources */,
 				DE591B8D23FA100500E68BA7 /* ViewController.swift in Sources */,
 				DE591B8923FA100500E68BA7 /* AppDelegate.swift in Sources */,
+				DE591BA523FA118800E68BA7 /* TagRepository.swift in Sources */,
+				DE591BAC23FA12D200E68BA7 /* RemoteServiceProtocol.swift in Sources */,
+				DE591BBD23FA265800E68BA7 /* TagsWrapper.swift in Sources */,
 				DE591B8B23FA100500E68BA7 /* SceneDelegate.swift in Sources */,
+				DE591BA823FA119B00E68BA7 /* ItemRepository.swift in Sources */,
+				DE591BB823FA1DA800E68BA7 /* AppConstants.swift in Sources */,
+				DE591BB223FA14F600E68BA7 /* RemoteServiceError.swift in Sources */,
+				DE591BB523FA162100E68BA7 /* ElmenusEndPoints.swift in Sources */,
+				DE591BBA23FA24EC00E68BA7 /* TagsRemoteService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +466,7 @@
 		};
 		DE591B9A23FA100600E68BA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB1CA6663338A4BACF3DFAE5 /* Pods-elmenus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -315,6 +484,7 @@
 		};
 		DE591B9B23FA100600E68BA7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8FDB06EF1727B77BB2C70A0 /* Pods-elmenus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
