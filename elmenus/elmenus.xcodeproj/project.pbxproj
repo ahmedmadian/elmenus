@@ -31,6 +31,9 @@
 		DE591BCF23FAAEA100E68BA7 /* MenuViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BCE23FAAEA100E68BA7 /* MenuViewModelProtocol.swift */; };
 		DE591BD223FAAF4E00E68BA7 /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BD123FAAF4E00E68BA7 /* BindableType.swift */; };
 		DE591BD423FAB0AB00E68BA7 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BD323FAB0AB00E68BA7 /* Storyboards.swift */; };
+		DE591BDC23FAB5C200E68BA7 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BDA23FAB5C200E68BA7 /* TagCell.swift */; };
+		DE591BDD23FAB5C300E68BA7 /* TagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE591BDB23FAB5C200E68BA7 /* TagCell.xib */; };
+		DE591BDF23FAB76300E68BA7 /* TagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BDE23FAB76300E68BA7 /* TagViewModel.swift */; };
 		F808ABACDFFC9FBBAC253274 /* Pods_elmenus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE0A61423E5E7E41712C5538 /* Pods_elmenus.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +67,9 @@
 		DE591BCE23FAAEA100E68BA7 /* MenuViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModelProtocol.swift; sourceTree = "<group>"; };
 		DE591BD123FAAF4E00E68BA7 /* BindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
 		DE591BD323FAB0AB00E68BA7 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
+		DE591BDA23FAB5C200E68BA7 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
+		DE591BDB23FAB5C200E68BA7 /* TagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCell.xib; sourceTree = "<group>"; };
+		DE591BDE23FAB76300E68BA7 /* TagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +223,7 @@
 		DE591BC723FAAE1200E68BA7 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DE591BD623FAB57500E68BA7 /* TagCell */,
 				DE591BC823FAAE3400E68BA7 /* Menu */,
 			);
 			path = Modules;
@@ -247,6 +254,16 @@
 				DE591B8823FA100500E68BA7 /* AppDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		DE591BD623FAB57500E68BA7 /* TagCell */ = {
+			isa = PBXGroup;
+			children = (
+				DE591BDA23FAB5C200E68BA7 /* TagCell.swift */,
+				DE591BDB23FAB5C200E68BA7 /* TagCell.xib */,
+				DE591BDE23FAB76300E68BA7 /* TagViewModel.swift */,
+			);
+			path = TagCell;
 			sourceTree = "<group>";
 		};
 		FF40E4F93BAB4B66AE381BAF /* Frameworks */ = {
@@ -317,6 +334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE591BDD23FAB5C300E68BA7 /* TagCell.xib in Resources */,
 				DE591B9523FA100600E68BA7 /* LaunchScreen.storyboard in Resources */,
 				DE591B9223FA100600E68BA7 /* Assets.xcassets in Resources */,
 				DE591B9023FA100500E68BA7 /* Main.storyboard in Resources */,
@@ -372,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE591BDC23FAB5C200E68BA7 /* TagCell.swift in Sources */,
 				DE591BA123FA10E600E68BA7 /* Item.swift in Sources */,
 				DE591BAE23FA131E00E68BA7 /* Endpointed.swift in Sources */,
 				DE591BD423FAB0AB00E68BA7 /* Storyboards.swift in Sources */,
@@ -387,6 +406,7 @@
 				DE591BA823FA119B00E68BA7 /* ItemRepository.swift in Sources */,
 				DE591BB823FA1DA800E68BA7 /* AppConstants.swift in Sources */,
 				DE591BB223FA14F600E68BA7 /* RemoteServiceError.swift in Sources */,
+				DE591BDF23FAB76300E68BA7 /* TagViewModel.swift in Sources */,
 				DE591BCB23FAAE7000E68BA7 /* MenuViewController.swift in Sources */,
 				DE591BB523FA162100E68BA7 /* ElmenusEndPoints.swift in Sources */,
 				DE591BC623FAAD3300E68BA7 /* AppStartupRoute.swift in Sources */,
