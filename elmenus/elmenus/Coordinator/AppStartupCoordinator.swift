@@ -22,11 +22,14 @@ class AppStartupCoordinator: NavigationCoordinator<AppStartupRoute> {
         case .menu:
             let tagRepo = TagRepository()
             let itemRepo = ItemRepository()
-            let viewModel = MenuViewModel(tagsRepo: tagRepo, itemsRepo: itemRepo)
+            let viewModel = MenuViewModel(router: self.unownedRouter,tagsRepo: tagRepo, itemsRepo: itemRepo)
             let controller: MenuViewController  = Storyboards.main.instantiate()!
             controller.bind(to: viewModel)
             return .push(controller)
             
+        case .detail(let data):
+            let controller: ItemDetailViewController = Storyboards.main.instantiate()!
+            return .push(controller)
         default:
             return .dismissToRoot()
         }

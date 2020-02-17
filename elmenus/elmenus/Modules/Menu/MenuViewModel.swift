@@ -9,24 +9,29 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import XCoordinator
 
 class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput {
     
     //MARK:-  Input
     var loaded: PublishSubject<Void>
     var loadNextTags: PublishSubject<Void>
+    var openDetail: PublishSubject<ItemViewModel>
     
     //MARK:- Output
     var tagsData: BehaviorRelay<[TagViewModel]>
     var itemsData: BehaviorRelay<[ItemViewModel]>
     
-    //MARK: Fields
+    // MARK: - Dependancies
+    private var router: UnownedRouter<AppStartupRoute>
     private let tagsRepo: TagRepositoryProtocol
     private let itemsRepo: ItemRepositoryProtocol
   
     let currentPage = BehaviorRelay<Int>(value: 0)
 
-    init(tagsRepo: TagRepositoryProtocol, itemsRepo: ItemRepositoryProtocol) {
+    init(router: UnownedRouter<AppStartupRoute>, tagsRepo: TagRepositoryProtocol, itemsRepo: ItemRepositoryProtocol) {
+        
+        self.router = router
         self.tagsRepo = tagsRepo
         self.itemsRepo = itemsRepo
         
@@ -35,6 +40,8 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
         
         /// Used to fetch next data page
         self.loadNextTags =  PublishSubject<Void>()
+        
+        self.openDetail = PublishSubject<ItemViewModel>().asObserver()
         
         tagsData = BehaviorRelay<[TagViewModel]>(value: [])
         itemsData = BehaviorRelay<[ItemViewModel]>(value: [])
@@ -64,6 +71,8 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
         _ = loadItems.subscribe(onNext: { (items) in
             self.itemsData.accept(self.itemsData.value + items)
         })
+        
+        _ = openDetail.subscribe(onNext: {router.trigger(.detail($0))})
         
     }
     

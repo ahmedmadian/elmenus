@@ -41,6 +41,9 @@
 		DE591BEA23FAD02E00E68BA7 /* ItemsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BE923FAD02E00E68BA7 /* ItemsWrapper.swift */; };
 		DE591BEC23FAD8A300E68BA7 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BEB23FAD8A300E68BA7 /* Temp.swift */; };
 		DE591BEF23FAD8D300E68BA7 /* TempData.json in Resources */ = {isa = PBXBuildFile; fileRef = DE591BEE23FAD8D300E68BA7 /* TempData.json */; };
+		DE591BF723FB2EA300E68BA7 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BF623FB2EA300E68BA7 /* ItemDetailViewController.swift */; };
+		DE591BF923FB2ECF00E68BA7 /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BF823FB2ECF00E68BA7 /* ItemDetailViewModel.swift */; };
+		DE591BFB23FB2EE500E68BA7 /* ItemDetailViewModelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BFA23FB2EE500E68BA7 /* ItemDetailViewModelProtocols.swift */; };
 		F808ABACDFFC9FBBAC253274 /* Pods_elmenus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE0A61423E5E7E41712C5538 /* Pods_elmenus.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +87,9 @@
 		DE591BE923FAD02E00E68BA7 /* ItemsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsWrapper.swift; sourceTree = "<group>"; };
 		DE591BEB23FAD8A300E68BA7 /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
 		DE591BEE23FAD8D300E68BA7 /* TempData.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = TempData.json; sourceTree = "<group>"; };
+		DE591BF623FB2EA300E68BA7 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		DE591BF823FB2ECF00E68BA7 /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModel.swift; sourceTree = "<group>"; };
+		DE591BFA23FB2EE500E68BA7 /* ItemDetailViewModelProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModelProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +246,7 @@
 		DE591BC723FAAE1200E68BA7 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DE591BF523FB2E6A00E68BA7 /* Detail */,
 				DE591BE023FAB9E700E68BA7 /* ItemCell */,
 				DE591BD623FAB57500E68BA7 /* TagCell */,
 				DE591BC823FAAE3400E68BA7 /* Menu */,
@@ -309,6 +316,16 @@
 			children = (
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		DE591BF523FB2E6A00E68BA7 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				DE591BF623FB2EA300E68BA7 /* ItemDetailViewController.swift */,
+				DE591BF823FB2ECF00E68BA7 /* ItemDetailViewModel.swift */,
+				DE591BFA23FB2EE500E68BA7 /* ItemDetailViewModelProtocols.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		FF40E4F93BAB4B66AE381BAF /* Frameworks */ = {
@@ -447,17 +464,20 @@
 				DE591B9F23FA10B900E68BA7 /* Tag.swift in Sources */,
 				DE591BEC23FAD8A300E68BA7 /* Temp.swift in Sources */,
 				DE591BB023FA135300E68BA7 /* HTTPMethod+HTTPSchema.swift in Sources */,
+				DE591BF723FB2EA300E68BA7 /* ItemDetailViewController.swift in Sources */,
 				DE591BE323FABA1000E68BA7 /* ItemCell.swift in Sources */,
 				DE591B8923FA100500E68BA7 /* AppDelegate.swift in Sources */,
 				DE591BEA23FAD02E00E68BA7 /* ItemsWrapper.swift in Sources */,
 				DE591BCF23FAAEA100E68BA7 /* MenuViewModelProtocol.swift in Sources */,
 				DE591BA523FA118800E68BA7 /* TagRepository.swift in Sources */,
 				DE591BAC23FA12D200E68BA7 /* RemoteServiceProtocol.swift in Sources */,
+				DE591BF923FB2ECF00E68BA7 /* ItemDetailViewModel.swift in Sources */,
 				DE591BBD23FA265800E68BA7 /* TagsWrapper.swift in Sources */,
 				DE591BA823FA119B00E68BA7 /* ItemRepository.swift in Sources */,
 				DE591BB823FA1DA800E68BA7 /* AppConstants.swift in Sources */,
 				DE591BB223FA14F600E68BA7 /* RemoteServiceError.swift in Sources */,
 				DE591BDF23FAB76300E68BA7 /* TagViewModel.swift in Sources */,
+				DE591BFB23FB2EE500E68BA7 /* ItemDetailViewModelProtocols.swift in Sources */,
 				DE591BCB23FAAE7000E68BA7 /* MenuViewController.swift in Sources */,
 				DE591BB523FA162100E68BA7 /* ElmenusEndPoints.swift in Sources */,
 				DE591BC623FAAD3300E68BA7 /* AppStartupRoute.swift in Sources */,

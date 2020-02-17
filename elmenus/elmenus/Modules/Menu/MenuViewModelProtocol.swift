@@ -13,6 +13,8 @@ import RxCocoa
 protocol MenuViewModelInput {
     var loaded: PublishSubject<Void> {get}
     var loadNextTags: PublishSubject<Void> { get }
+    var openDetail: PublishSubject<ItemViewModel> { get }
+
 }
 
 protocol MenuViewModelOutput {

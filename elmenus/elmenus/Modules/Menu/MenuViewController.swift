@@ -48,6 +48,10 @@ class MenuViewController: UIViewController, BindableType {
             .bind(to: collectionView.rx.items(cellIdentifier: TagCell.typeName, cellType: TagCell.self)) { item, data, cell in
                 cell.configCellAppearnce(with: data)
         }.disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(ItemViewModel.self)
+            .bind(to: viewModel.input.openDetail)
+            .disposed(by: disposeBag)
     }
     
     private func congifTableView() {

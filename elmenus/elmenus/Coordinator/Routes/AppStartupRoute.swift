@@ -11,6 +11,6 @@ import XCoordinator
 
 enum AppStartupRoute: Route {
     case menu
-    case detail
+    case detail(ItemViewModel)
     case exit
 }
