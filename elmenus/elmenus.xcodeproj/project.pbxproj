@@ -13,6 +13,8 @@
 		DE591B9023FA100500E68BA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE591B8E23FA100500E68BA7 /* Main.storyboard */; };
 		DE591B9223FA100600E68BA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE591B9123FA100600E68BA7 /* Assets.xcassets */; };
 		DE591B9523FA100600E68BA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE591B9323FA100600E68BA7 /* LaunchScreen.storyboard */; };
+		DE591B9F23FA10B900E68BA7 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591B9E23FA10B900E68BA7 /* Tag.swift */; };
+		DE591BA123FA10E600E68BA7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BA023FA10E600E68BA7 /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		DE591B9123FA100600E68BA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE591B9423FA100600E68BA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE591B9623FA100600E68BA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE591B9E23FA10B900E68BA7 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		DE591BA023FA10E600E68BA7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		DE591B8723FA100500E68BA7 /* elmenus */ = {
 			isa = PBXGroup;
 			children = (
+				DE591B9D23FA109700E68BA7 /* Model */,
 				DE591B8823FA100500E68BA7 /* AppDelegate.swift */,
 				DE591B8A23FA100500E68BA7 /* SceneDelegate.swift */,
 				DE591B8C23FA100500E68BA7 /* ViewController.swift */,
@@ -65,6 +70,15 @@
 				DE591B9623FA100600E68BA7 /* Info.plist */,
 			);
 			path = elmenus;
+			sourceTree = "<group>";
+		};
+		DE591B9D23FA109700E68BA7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE591B9E23FA10B900E68BA7 /* Tag.swift */,
+				DE591BA023FA10E600E68BA7 /* Item.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +152,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE591BA123FA10E600E68BA7 /* Item.swift in Sources */,
+				DE591B9F23FA10B900E68BA7 /* Tag.swift in Sources */,
 				DE591B8D23FA100500E68BA7 /* ViewController.swift in Sources */,
 				DE591B8923FA100500E68BA7 /* AppDelegate.swift in Sources */,
 				DE591B8B23FA100500E68BA7 /* SceneDelegate.swift in Sources */,

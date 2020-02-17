@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+struct Tag : Codable {
+    let tagName : String?
+    let photoURL : String?
+
+    enum CodingKeys: String, CodingKey {
+        case tagName = "tagName"
+        case photoURL = "photoURL"
+    }
+
+}
