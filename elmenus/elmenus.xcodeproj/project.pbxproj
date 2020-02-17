@@ -34,6 +34,9 @@
 		DE591BDC23FAB5C200E68BA7 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BDA23FAB5C200E68BA7 /* TagCell.swift */; };
 		DE591BDD23FAB5C300E68BA7 /* TagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE591BDB23FAB5C200E68BA7 /* TagCell.xib */; };
 		DE591BDF23FAB76300E68BA7 /* TagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BDE23FAB76300E68BA7 /* TagViewModel.swift */; };
+		DE591BE323FABA1000E68BA7 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BE123FABA1000E68BA7 /* ItemCell.swift */; };
+		DE591BE423FABA1000E68BA7 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE591BE223FABA1000E68BA7 /* ItemCell.xib */; };
+		DE591BE623FABBF500E68BA7 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BE523FABBF500E68BA7 /* ItemViewModel.swift */; };
 		F808ABACDFFC9FBBAC253274 /* Pods_elmenus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE0A61423E5E7E41712C5538 /* Pods_elmenus.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +73,9 @@
 		DE591BDA23FAB5C200E68BA7 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
 		DE591BDB23FAB5C200E68BA7 /* TagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCell.xib; sourceTree = "<group>"; };
 		DE591BDE23FAB76300E68BA7 /* TagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModel.swift; sourceTree = "<group>"; };
+		DE591BE123FABA1000E68BA7 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		DE591BE223FABA1000E68BA7 /* ItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
+		DE591BE523FABBF500E68BA7 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +229,7 @@
 		DE591BC723FAAE1200E68BA7 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DE591BE023FAB9E700E68BA7 /* ItemCell */,
 				DE591BD623FAB57500E68BA7 /* TagCell */,
 				DE591BC823FAAE3400E68BA7 /* Menu */,
 			);
@@ -264,6 +271,16 @@
 				DE591BDE23FAB76300E68BA7 /* TagViewModel.swift */,
 			);
 			path = TagCell;
+			sourceTree = "<group>";
+		};
+		DE591BE023FAB9E700E68BA7 /* ItemCell */ = {
+			isa = PBXGroup;
+			children = (
+				DE591BE123FABA1000E68BA7 /* ItemCell.swift */,
+				DE591BE223FABA1000E68BA7 /* ItemCell.xib */,
+				DE591BE523FABBF500E68BA7 /* ItemViewModel.swift */,
+			);
+			path = ItemCell;
 			sourceTree = "<group>";
 		};
 		FF40E4F93BAB4B66AE381BAF /* Frameworks */ = {
@@ -336,6 +353,7 @@
 			files = (
 				DE591BDD23FAB5C300E68BA7 /* TagCell.xib in Resources */,
 				DE591B9523FA100600E68BA7 /* LaunchScreen.storyboard in Resources */,
+				DE591BE423FABA1000E68BA7 /* ItemCell.xib in Resources */,
 				DE591B9223FA100600E68BA7 /* Assets.xcassets in Resources */,
 				DE591B9023FA100500E68BA7 /* Main.storyboard in Resources */,
 			);
@@ -398,6 +416,7 @@
 				DE591BCD23FAAE8000E68BA7 /* MenuViewModel.swift in Sources */,
 				DE591B9F23FA10B900E68BA7 /* Tag.swift in Sources */,
 				DE591BB023FA135300E68BA7 /* HTTPMethod+HTTPSchema.swift in Sources */,
+				DE591BE323FABA1000E68BA7 /* ItemCell.swift in Sources */,
 				DE591B8923FA100500E68BA7 /* AppDelegate.swift in Sources */,
 				DE591BCF23FAAEA100E68BA7 /* MenuViewModelProtocol.swift in Sources */,
 				DE591BA523FA118800E68BA7 /* TagRepository.swift in Sources */,
@@ -412,6 +431,7 @@
 				DE591BC623FAAD3300E68BA7 /* AppStartupRoute.swift in Sources */,
 				DE591BC323FAAD0400E68BA7 /* AppStartupCoordinator.swift in Sources */,
 				DE591BD223FAAF4E00E68BA7 /* BindableType.swift in Sources */,
+				DE591BE623FABBF500E68BA7 /* ItemViewModel.swift in Sources */,
 				DE591BBA23FA24EC00E68BA7 /* TagsRemoteService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

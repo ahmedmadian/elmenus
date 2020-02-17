@@ -11,6 +11,7 @@ import Kingfisher
 
 class TagCell: UICollectionViewCell {
 
+    // MARK: - Outlets
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!

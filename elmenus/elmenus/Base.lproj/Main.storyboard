@@ -41,6 +41,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="W6x-82-JUB" id="pnB-ne-2GQ"/>
+                        <outlet property="tableView" destination="0wZ-l3-isd" id="79F-q7-5Am"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

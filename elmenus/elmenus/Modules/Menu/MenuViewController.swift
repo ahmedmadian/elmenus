@@ -10,6 +10,10 @@ import UIKit
 
 class MenuViewController: UIViewController, BindableType {
     
+    //MARK: Outlets
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
 
     // MARK: - Properties
     var viewModel: MenuViewModelType!
