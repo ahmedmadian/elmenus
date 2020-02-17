@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MenuViewController.swift
 //  elmenus
 //
 //  Created by Ahmed Madian on 2/17/20.
@@ -8,13 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MenuViewController: UIViewController, BindableType {
+    
 
+    // MARK: - Properties
+    var viewModel: MenuViewModelType!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
+    
+    func bindViewModel() {
+    }
+    
 
 }
-

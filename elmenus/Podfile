@@ -3,6 +3,7 @@
 
 def swiftPods
   pod 'Alamofire'
+  pod 'XCoordinator'
 end
 
 target 'elmenus' do

@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DE591B8923FA100500E68BA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591B8823FA100500E68BA7 /* AppDelegate.swift */; };
-		DE591B8B23FA100500E68BA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591B8A23FA100500E68BA7 /* SceneDelegate.swift */; };
-		DE591B8D23FA100500E68BA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591B8C23FA100500E68BA7 /* ViewController.swift */; };
 		DE591B9023FA100500E68BA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE591B8E23FA100500E68BA7 /* Main.storyboard */; };
 		DE591B9223FA100600E68BA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE591B9123FA100600E68BA7 /* Assets.xcassets */; };
 		DE591B9523FA100600E68BA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE591B9323FA100600E68BA7 /* LaunchScreen.storyboard */; };
@@ -26,6 +24,13 @@
 		DE591BBA23FA24EC00E68BA7 /* TagsRemoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BB923FA24EC00E68BA7 /* TagsRemoteService.swift */; };
 		DE591BBD23FA265800E68BA7 /* TagsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BBC23FA265800E68BA7 /* TagsWrapper.swift */; };
 		DE591BC023FA2A3500E68BA7 /* ItemsRemoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BBF23FA2A3500E68BA7 /* ItemsRemoteService.swift */; };
+		DE591BC323FAAD0400E68BA7 /* AppStartupCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BC223FAAD0400E68BA7 /* AppStartupCoordinator.swift */; };
+		DE591BC623FAAD3300E68BA7 /* AppStartupRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BC523FAAD3300E68BA7 /* AppStartupRoute.swift */; };
+		DE591BCB23FAAE7000E68BA7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BCA23FAAE7000E68BA7 /* MenuViewController.swift */; };
+		DE591BCD23FAAE8000E68BA7 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BCC23FAAE8000E68BA7 /* MenuViewModel.swift */; };
+		DE591BCF23FAAEA100E68BA7 /* MenuViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BCE23FAAEA100E68BA7 /* MenuViewModelProtocol.swift */; };
+		DE591BD223FAAF4E00E68BA7 /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BD123FAAF4E00E68BA7 /* BindableType.swift */; };
+		DE591BD423FAB0AB00E68BA7 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BD323FAB0AB00E68BA7 /* Storyboards.swift */; };
 		F808ABACDFFC9FBBAC253274 /* Pods_elmenus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE0A61423E5E7E41712C5538 /* Pods_elmenus.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,8 +40,6 @@
 		CB1CA6663338A4BACF3DFAE5 /* Pods-elmenus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-elmenus.debug.xcconfig"; path = "Target Support Files/Pods-elmenus/Pods-elmenus.debug.xcconfig"; sourceTree = "<group>"; };
 		DE591B8523FA100500E68BA7 /* elmenus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = elmenus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE591B8823FA100500E68BA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DE591B8A23FA100500E68BA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DE591B8C23FA100500E68BA7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DE591B8F23FA100500E68BA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DE591B9123FA100600E68BA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE591B9423FA100600E68BA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +57,13 @@
 		DE591BB923FA24EC00E68BA7 /* TagsRemoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsRemoteService.swift; sourceTree = "<group>"; };
 		DE591BBC23FA265800E68BA7 /* TagsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsWrapper.swift; sourceTree = "<group>"; };
 		DE591BBF23FA2A3500E68BA7 /* ItemsRemoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsRemoteService.swift; sourceTree = "<group>"; };
+		DE591BC223FAAD0400E68BA7 /* AppStartupCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStartupCoordinator.swift; sourceTree = "<group>"; };
+		DE591BC523FAAD3300E68BA7 /* AppStartupRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStartupRoute.swift; sourceTree = "<group>"; };
+		DE591BCA23FAAE7000E68BA7 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		DE591BCC23FAAE8000E68BA7 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		DE591BCE23FAAEA100E68BA7 /* MenuViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModelProtocol.swift; sourceTree = "<group>"; };
+		DE591BD123FAAF4E00E68BA7 /* BindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
+		DE591BD323FAB0AB00E68BA7 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,12 +108,13 @@
 		DE591B8723FA100500E68BA7 /* elmenus */ = {
 			isa = PBXGroup;
 			children = (
+				DE591BC123FAACD800E68BA7 /* Coordinator */,
+				DE591BD023FAAF4300E68BA7 /* Library */,
+				DE591BC723FAAE1200E68BA7 /* Modules */,
 				DE591BB623FA1D9900E68BA7 /* Application */,
 				DE591BA223FA115000E68BA7 /* Persistence */,
 				DE591B9D23FA109700E68BA7 /* Model */,
-				DE591B8823FA100500E68BA7 /* AppDelegate.swift */,
-				DE591B8A23FA100500E68BA7 /* SceneDelegate.swift */,
-				DE591B8C23FA100500E68BA7 /* ViewController.swift */,
+				DE591BD523FAB2C500E68BA7 /* App */,
 				DE591B8E23FA100500E68BA7 /* Main.storyboard */,
 				DE591B9123FA100600E68BA7 /* Assets.xcassets */,
 				DE591B9323FA100600E68BA7 /* LaunchScreen.storyboard */,
@@ -184,6 +195,58 @@
 				DE591BBC23FA265800E68BA7 /* TagsWrapper.swift */,
 			);
 			path = DTO;
+			sourceTree = "<group>";
+		};
+		DE591BC123FAACD800E68BA7 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				DE591BC423FAAD1E00E68BA7 /* Routes */,
+				DE591BC223FAAD0400E68BA7 /* AppStartupCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		DE591BC423FAAD1E00E68BA7 /* Routes */ = {
+			isa = PBXGroup;
+			children = (
+				DE591BC523FAAD3300E68BA7 /* AppStartupRoute.swift */,
+			);
+			path = Routes;
+			sourceTree = "<group>";
+		};
+		DE591BC723FAAE1200E68BA7 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				DE591BC823FAAE3400E68BA7 /* Menu */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		DE591BC823FAAE3400E68BA7 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				DE591BCA23FAAE7000E68BA7 /* MenuViewController.swift */,
+				DE591BCC23FAAE8000E68BA7 /* MenuViewModel.swift */,
+				DE591BCE23FAAEA100E68BA7 /* MenuViewModelProtocol.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		DE591BD023FAAF4300E68BA7 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				DE591BD123FAAF4E00E68BA7 /* BindableType.swift */,
+				DE591BD323FAB0AB00E68BA7 /* Storyboards.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		DE591BD523FAB2C500E68BA7 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DE591B8823FA100500E68BA7 /* AppDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		FF40E4F93BAB4B66AE381BAF /* Frameworks */ = {
@@ -311,19 +374,24 @@
 			files = (
 				DE591BA123FA10E600E68BA7 /* Item.swift in Sources */,
 				DE591BAE23FA131E00E68BA7 /* Endpointed.swift in Sources */,
+				DE591BD423FAB0AB00E68BA7 /* Storyboards.swift in Sources */,
 				DE591BC023FA2A3500E68BA7 /* ItemsRemoteService.swift in Sources */,
+				DE591BCD23FAAE8000E68BA7 /* MenuViewModel.swift in Sources */,
 				DE591B9F23FA10B900E68BA7 /* Tag.swift in Sources */,
 				DE591BB023FA135300E68BA7 /* HTTPMethod+HTTPSchema.swift in Sources */,
-				DE591B8D23FA100500E68BA7 /* ViewController.swift in Sources */,
 				DE591B8923FA100500E68BA7 /* AppDelegate.swift in Sources */,
+				DE591BCF23FAAEA100E68BA7 /* MenuViewModelProtocol.swift in Sources */,
 				DE591BA523FA118800E68BA7 /* TagRepository.swift in Sources */,
 				DE591BAC23FA12D200E68BA7 /* RemoteServiceProtocol.swift in Sources */,
 				DE591BBD23FA265800E68BA7 /* TagsWrapper.swift in Sources */,
-				DE591B8B23FA100500E68BA7 /* SceneDelegate.swift in Sources */,
 				DE591BA823FA119B00E68BA7 /* ItemRepository.swift in Sources */,
 				DE591BB823FA1DA800E68BA7 /* AppConstants.swift in Sources */,
 				DE591BB223FA14F600E68BA7 /* RemoteServiceError.swift in Sources */,
+				DE591BCB23FAAE7000E68BA7 /* MenuViewController.swift in Sources */,
 				DE591BB523FA162100E68BA7 /* ElmenusEndPoints.swift in Sources */,
+				DE591BC623FAAD3300E68BA7 /* AppStartupRoute.swift in Sources */,
+				DE591BC323FAAD0400E68BA7 /* AppStartupCoordinator.swift in Sources */,
+				DE591BD223FAAF4E00E68BA7 /* BindableType.swift in Sources */,
 				DE591BBA23FA24EC00E68BA7 /* TagsRemoteService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
