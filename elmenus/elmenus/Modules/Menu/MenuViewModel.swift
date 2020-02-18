@@ -15,8 +15,11 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
     
     
     
+    
+    
     //MARK:-  Input
     var loaded: PublishSubject<Void>
+    var fetchItems: PublishSubject<Void>
     var loadNextTags: PublishSubject<Void>
     var openDetail: PublishSubject<ItemViewModel>
     var selectedTag: PublishSubject<TagViewModel>
@@ -42,6 +45,8 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
         /// Used to start load when view load
         self.loaded = PublishSubject<Void>()
         
+        self.fetchItems = PublishSubject<Void>()
+        
         /// Used to fetch next data page
         self.loadNextTags =  PublishSubject<Void>()
         
@@ -63,7 +68,7 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
             return self.tagsRepo.fetchTags(for: self.currentPage.value + 1).map { $0.map { TagViewModel(with: $0) }}
         }
         
-        let loadItems = loaded.flatMapLatest { _ -> Observable<[ItemViewModel]> in
+        let loadItems = fetchItems.flatMapLatest { _ -> Observable<[ItemViewModel]> in
             return self.itemsRepo.fetchItems(for: "2Desert").map { $0.map { ItemViewModel(with: $0) }}
         }
         

@@ -25,6 +25,7 @@ class TagCell: UICollectionViewCell, BindableType {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        configCellAppearnce()
     }
     
     func bindViewModel() {
@@ -48,18 +49,21 @@ class TagCell: UICollectionViewCell, BindableType {
     }
 
     // MARK: - Methods
-//    func configCellAppearnce(with viewModel: TagViewModel) {
-//        imageView.kf.setImage(with: URL.init(string: viewModel.imageURL ), options: [
-//            .scaleFactor(UIScreen.main.scale),
-//            .transition(.fade(1)),
-//            .cacheOriginalImage,
-//        ])
-//        containerView.makeRoundedCorners(with: containerView.frame.height / 8)
-//        borderView.makeRoundedCorners(with: borderView.frame.height/8)
-//        innerView.makeRoundedCorners(with: borderView.frame.height/8)
-//        imageView.makeRoundedCorners(with: imageView.frame.height / 8)
-//        titleLabel.text = viewModel.title
-//
-//    }
+    private func configCellAppearnce() {
+        containerView.makeRoundedCorners(with: containerView.frame.height / 8)
+        borderView.makeRoundedCorners(with: borderView.frame.height/8)
+        innerView.makeRoundedCorners(with: borderView.frame.height/8)
+        imageView.makeRoundedCorners(with: imageView.frame.height / 8)
+        animateCell()
+    }
     
+    private func animateCell() {
+           let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0)
+           self.layer.transform = rotationTransform
+           self.alpha = 0.5
+           UIView.animate(withDuration: 1.0) {
+               self.layer.transform = CATransform3DIdentity
+               self.alpha = 1.0
+           }
+       }
 }

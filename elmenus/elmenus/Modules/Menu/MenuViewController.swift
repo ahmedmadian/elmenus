@@ -55,8 +55,11 @@ class MenuViewController: UIViewController, BindableType {
         
         collectionView.rx.modelSelected(TagViewModel.self).do(onNext: { (viewModel) in
             viewModel.isHidden.onNext(false)
+            self.viewModel.input.fetchItems.onNext(())
         }).bind(to: viewModel.input.selectedTag)
             .disposed(by: disposeBag)
+        
+        
         
         collectionView.rx.modelDeselected(TagViewModel.self)
             .subscribe(onNext :{ (viewModel) in
