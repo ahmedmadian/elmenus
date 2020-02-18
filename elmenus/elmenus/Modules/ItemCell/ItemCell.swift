@@ -27,6 +27,16 @@ class ItemCell: UITableViewCell {
         itemImageView.makeRoundedCorners(with: itemImageView.frame.height / 8)
         labelContainerView.makeRoundedCorners(with: labelContainerView.frame.height / 8)
         titlLabel.text = viewModel.name
+        animateCell()
     }
     
+    private func animateCell() {
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0)
+        self.layer.transform = rotationTransform
+        self.alpha = 0.5
+        UIView.animate(withDuration: 1.0) {
+            self.layer.transform = CATransform3DIdentity
+            self.alpha = 1.0
+        }
+    }
 }

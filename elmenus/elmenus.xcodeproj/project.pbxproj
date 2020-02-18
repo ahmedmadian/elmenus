@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE5363BE23FC489600F1D6D5 /* TagViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5363BD23FC489600F1D6D5 /* TagViewModelProtocol.swift */; };
 		DE591B8923FA100500E68BA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591B8823FA100500E68BA7 /* AppDelegate.swift */; };
 		DE591B9023FA100500E68BA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE591B8E23FA100500E68BA7 /* Main.storyboard */; };
 		DE591B9223FA100600E68BA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE591B9123FA100600E68BA7 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		AE0A61423E5E7E41712C5538 /* Pods_elmenus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_elmenus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8FDB06EF1727B77BB2C70A0 /* Pods-elmenus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-elmenus.release.xcconfig"; path = "Target Support Files/Pods-elmenus/Pods-elmenus.release.xcconfig"; sourceTree = "<group>"; };
 		CB1CA6663338A4BACF3DFAE5 /* Pods-elmenus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-elmenus.debug.xcconfig"; path = "Target Support Files/Pods-elmenus/Pods-elmenus.debug.xcconfig"; sourceTree = "<group>"; };
+		DE5363BD23FC489600F1D6D5 /* TagViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModelProtocol.swift; sourceTree = "<group>"; };
 		DE591B8523FA100500E68BA7 /* elmenus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = elmenus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE591B8823FA100500E68BA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE591B8F23FA100500E68BA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				DE591BDA23FAB5C200E68BA7 /* TagCell.swift */,
 				DE591BDB23FAB5C200E68BA7 /* TagCell.xib */,
 				DE591BDE23FAB76300E68BA7 /* TagViewModel.swift */,
+				DE5363BD23FC489600F1D6D5 /* TagViewModelProtocol.swift */,
 			);
 			path = TagCell;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				DE591BA523FA118800E68BA7 /* TagRepository.swift in Sources */,
 				DE591BAC23FA12D200E68BA7 /* RemoteServiceProtocol.swift in Sources */,
 				DE591C1023FB525E00E68BA7 /* OfflineTag.swift in Sources */,
+				DE5363BE23FC489600F1D6D5 /* TagViewModelProtocol.swift in Sources */,
 				DE591BF923FB2ECF00E68BA7 /* ItemDetailViewModel.swift in Sources */,
 				DE591BBD23FA265800E68BA7 /* TagsWrapper.swift in Sources */,
 				DE591BA823FA119B00E68BA7 /* ItemRepository.swift in Sources */,

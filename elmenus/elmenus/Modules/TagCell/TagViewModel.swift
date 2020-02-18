@@ -7,13 +7,20 @@
 //
 
 import Foundation
+import RxSwift
 
-class TagViewModel {
-    let imageURL: String
-    let title: String
+class TagViewModel: TagViewModelType, TagViewModelInput, TagViewModelOutput {
     
+    
+    //Output
+    var imageURL: Observable<String>
+    var title: Observable<String>
+    var isHidden: BehaviorSubject<Bool>
+
+
     init(with tag: Tag) {
-        self.imageURL = tag.photoURL
-        self.title = tag.tagName
+        self.imageURL = Observable.just(tag.photoURL)
+        self.title = Observable.just(tag.tagName)
+        isHidden = BehaviorSubject<Bool>(value: true)
     }
 }

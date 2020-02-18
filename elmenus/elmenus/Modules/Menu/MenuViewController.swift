@@ -32,9 +32,9 @@ class MenuViewController: UIViewController, BindableType {
     func bindViewModel() {
         
         rx.sentMessage(#selector(UIViewController.viewDidAppear(_:)))
-        .take(1)
-        .map { _ in }
-        .bind(to: viewModel.input.loaded).disposed(by: disposeBag)
+            .take(1)
+            .map { _ in }
+            .bind(to: viewModel.input.loaded).disposed(by: disposeBag)
         
         
         viewModel.output.itemsData
@@ -45,13 +45,23 @@ class MenuViewController: UIViewController, BindableType {
         
         viewModel.output.tagsData
             .observeOn(MainScheduler.instance)
-            .bind(to: collectionView.rx.items(cellIdentifier: TagCell.typeName, cellType: TagCell.self)) { item, data, cell in
-                cell.configCellAppearnce(with: data)
+            .bind(to: collectionView.rx.items(cellIdentifier: TagCell.typeName, cellType: TagCell.self)) { item, viewModel, cell in
+                cell.bind(to: viewModel)
         }.disposed(by: disposeBag)
         
         tableView.rx.modelSelected(ItemViewModel.self)
             .bind(to: viewModel.input.openDetail)
             .disposed(by: disposeBag)
+        
+        collectionView.rx.modelSelected(TagViewModel.self).do(onNext: { (viewModel) in
+            viewModel.isHidden.onNext(false)
+        }).bind(to: viewModel.input.selectedTag)
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.modelDeselected(TagViewModel.self)
+            .subscribe(onNext :{ (viewModel) in
+                viewModel.isHidden.onNext(true)
+            }).disposed(by: disposeBag)
     }
     
     private func congifTableView() {
@@ -65,7 +75,7 @@ class MenuViewController: UIViewController, BindableType {
         let tagCellNib = UINib(nibName: TagCell.typeName, bundle: nil)
         collectionView.register(tagCellNib, forCellWithReuseIdentifier: TagCell.typeName)
     }
-
+    
     private func configureCollectionView() {
         registerCell()
         let flowLayout = UICollectionViewFlowLayout()
@@ -78,5 +88,5 @@ class MenuViewController: UIViewController, BindableType {
         flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         collectionView.setCollectionViewLayout(flowLayout, animated: true)
     }
-
+    
 }

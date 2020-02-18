@@ -13,10 +13,14 @@ import XCoordinator
 
 class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput {
     
+    
+    
     //MARK:-  Input
     var loaded: PublishSubject<Void>
     var loadNextTags: PublishSubject<Void>
     var openDetail: PublishSubject<ItemViewModel>
+    var selectedTag: PublishSubject<TagViewModel>
+//    var deselctedTag: PublishSubject<TagViewModel>
     
     //MARK:- Output
     var tagsData: BehaviorRelay<[TagViewModel]>
@@ -42,6 +46,9 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
         self.loadNextTags =  PublishSubject<Void>()
         
         self.openDetail = PublishSubject<ItemViewModel>().asObserver()
+        
+        self.selectedTag = PublishSubject<TagViewModel>().asObserver()
+//        self.deselctedTag = PublishSubject<TagViewModel>().asObserver()
         
         tagsData = BehaviorRelay<[TagViewModel]>(value: [])
         itemsData = BehaviorRelay<[ItemViewModel]>(value: [])
@@ -74,6 +81,13 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
         
         _ = openDetail.subscribe(onNext: {router.trigger(.detail($0))})
         
+        _ = selectedTag.subscribe(onNext: {
+            print("\($0.title)")
+        })
+        
+//        _ = deselctedTag.subscribe(onNext: {
+//            print("\($0.title)")
+//        })
     }
     
 }

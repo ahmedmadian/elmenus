@@ -14,6 +14,8 @@ protocol MenuViewModelInput {
     var loaded: PublishSubject<Void> {get}
     var loadNextTags: PublishSubject<Void> { get }
     var openDetail: PublishSubject<ItemViewModel> { get }
+    var selectedTag: PublishSubject<TagViewModel> { get }
+//    var deselctedTag: PublishSubject<TagViewModel> { get }
 
 }
 
