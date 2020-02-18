@@ -1,5 +1,10 @@
 PODS:
   - Alamofire (4.9.1)
+  - InfiniteLayout (0.4.2):
+    - InfiniteLayout/Core (= 0.4.2)
+  - InfiniteLayout/CocoaProxy (0.4.2)
+  - InfiniteLayout/Core (0.4.2):
+    - InfiniteLayout/CocoaProxy
   - Kingfisher (5.12.0):
     - Kingfisher/Core (= 5.12.0)
   - Kingfisher/Core (5.12.0)
@@ -18,6 +23,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - InfiniteLayout
   - Kingfisher
   - RxCocoa
   - RxCoreData
@@ -27,6 +33,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - InfiniteLayout
     - Kingfisher
     - RxCocoa
     - RxCoreData
@@ -36,6 +43,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  InfiniteLayout: de51cfad9ed480a3e3a0af7d28242d3257c606d9
   Kingfisher: dc6e0f53bb5b12c3e75bedb0e01bbd7a640eea69
   RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
   RxCoreData: 1ed5f83e80facccc90fc054eb7f39a44177de56a
@@ -43,6 +51,6 @@ SPEC CHECKSUMS:
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
   XCoordinator: 67772bf463acec002a920ab5eb04f46835dcf123
 
-PODFILE CHECKSUM: e1e4648a3e1b03d0fcfff229d6377adf3f311f47
+PODFILE CHECKSUM: dfa30e399f49f4ca5c26102fcfd9e129253cc09a
 
 COCOAPODS: 1.8.4

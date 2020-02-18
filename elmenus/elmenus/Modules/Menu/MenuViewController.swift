@@ -34,7 +34,7 @@ class MenuViewController: UIViewController, BindableType {
         rx.sentMessage(#selector(UIViewController.viewDidAppear(_:)))
             .take(1)
             .map { _ in }
-            .bind(to: viewModel.input.loaded).disposed(by: disposeBag)
+            .bind(to: viewModel.input.fetchTags).disposed(by: disposeBag)
         
         
         viewModel.output.itemsData
@@ -59,12 +59,19 @@ class MenuViewController: UIViewController, BindableType {
         }).bind(to: viewModel.input.selectedTag)
             .disposed(by: disposeBag)
         
-        
-        
         collectionView.rx.modelDeselected(TagViewModel.self)
             .subscribe(onNext :{ (viewModel) in
                 viewModel.isHidden.onNext(true)
             }).disposed(by: disposeBag)
+        
+        
+        collectionView.rx.didScroll.subscribe(onNext: {
+            let offsetX = self.collectionView.contentOffset.x
+            let contentWidth = self.collectionView.contentSize.width
+            if offsetX > contentWidth - self.collectionView.frame.width{
+                self.viewModel.input.loadNextTags.onNext(())
+            }
+        }).disposed(by: disposeBag)
     }
     
     private func congifTableView() {

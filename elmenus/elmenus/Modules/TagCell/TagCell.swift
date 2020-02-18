@@ -42,7 +42,9 @@ class TagCell: UICollectionViewCell, BindableType {
             ])
         }).disposed(by: disposeBag)
         
-        viewModel.output.isHidden
+        viewModel.output.isHidden.do {
+            print("change value")
+        }
             .bind(to: borderView.rx.isHidden)
             .disposed(by: disposeBag)
         

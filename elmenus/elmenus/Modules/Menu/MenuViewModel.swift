@@ -18,12 +18,11 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
     
     
     //MARK:-  Input
-    var loaded: PublishSubject<Void>
+    var fetchTags: PublishSubject<Void>
     var fetchItems: PublishSubject<Void>
     var loadNextTags: PublishSubject<Void>
     var openDetail: PublishSubject<ItemViewModel>
     var selectedTag: PublishSubject<TagViewModel>
-//    var deselctedTag: PublishSubject<TagViewModel>
     
     //MARK:- Output
     var tagsData: BehaviorRelay<[TagViewModel]>
@@ -43,7 +42,7 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
         self.itemsRepo = itemsRepo
         
         /// Used to start load when view load
-        self.loaded = PublishSubject<Void>()
+        self.fetchTags = PublishSubject<Void>()
         
         self.fetchItems = PublishSubject<Void>()
         
@@ -53,18 +52,18 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
         self.openDetail = PublishSubject<ItemViewModel>().asObserver()
         
         self.selectedTag = PublishSubject<TagViewModel>().asObserver()
-//        self.deselctedTag = PublishSubject<TagViewModel>().asObserver()
         
         tagsData = BehaviorRelay<[TagViewModel]>(value: [])
         itemsData = BehaviorRelay<[ItemViewModel]>(value: [])
         
-        let moreTags = loadNextTags.flatMapLatest { _ -> Observable<[TagViewModel]> in
+        let moreTags = loadNextTags.debounce( RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
+            .flatMapLatest { _ -> Observable<[TagViewModel]> in
             self.currentPage.accept(self.currentPage.value + 1)
              return self.tagsRepo.fetchTags(for: self.currentPage.value + 1)
                 .map { $0.map { TagViewModel(with: $0) }}
         }
         
-        let loadTags = loaded.flatMapLatest { _ -> Observable<[TagViewModel]> in
+        let loadTags = fetchTags.flatMapLatest { _ -> Observable<[TagViewModel]> in
             return self.tagsRepo.fetchTags(for: self.currentPage.value + 1).map { $0.map { TagViewModel(with: $0) }}
         }
         

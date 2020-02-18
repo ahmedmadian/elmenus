@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 protocol MenuViewModelInput {
-    var loaded: PublishSubject<Void> {get}
+    var fetchTags: PublishSubject<Void> {get}
     var fetchItems: PublishSubject<Void> { get }
     var loadNextTags: PublishSubject<Void> { get }
     var openDetail: PublishSubject<ItemViewModel> { get }
