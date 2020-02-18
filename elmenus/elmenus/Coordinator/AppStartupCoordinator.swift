@@ -13,6 +13,7 @@ class AppStartupCoordinator: NavigationCoordinator<AppStartupRoute> {
     
     init() {
         super.init(initialRoute: .menu)
+        Config(navigationController: self.rootViewController)
     }
     
     ///manage modules transition
@@ -28,10 +29,17 @@ class AppStartupCoordinator: NavigationCoordinator<AppStartupRoute> {
             return .push(controller)
             
         case .detail(let data):
+            let viewModel = ItemDetailViewModel(router: self.unownedRouter, data: data)
             let controller: ItemDetailViewController = Storyboards.main.instantiate()!
+            controller.bind(to: viewModel)
             return .push(controller)
         default:
-            return .dismissToRoot()
+            return .pop()
         }
+    }
+    
+    ///setup navigation bar appearnce
+    private func Config(navigationController: UINavigationController) {
+        navigationController.navigationBar.isHidden = true
     }
 }

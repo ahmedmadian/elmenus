@@ -11,9 +11,11 @@ import Foundation
 class ItemViewModel {
     let name: String
     let imageURL: String
+    let description: String
     
     init(with item: Item) {
         self.name = item.name
         self.imageURL = item.photoUrl
+        self.description = item.description
     }
 }

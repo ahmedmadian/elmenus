@@ -11,9 +11,12 @@ import RxSwift
 import RxCocoa
 
 protocol ItemDetailViewModelInput {
+    var loaded: PublishSubject<Void> { get }
+    var back: PublishSubject<Void> { get }
 }
 
 protocol ItemDetailViewModelOutput {
+    var itemData: BehaviorRelay<ItemViewModel> { get }
 }
 
 protocol ItemDetailViewModelType {
