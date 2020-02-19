@@ -11,13 +11,10 @@ import RxSwift
 import RxCocoa
 
 protocol MenuViewModelInput {
-    var fetchTags: PublishSubject<Void> {get}
-    var fetchItems: PublishSubject<Void> { get }
+    var viewLoaded: PublishSubject<Void> { get }
     var loadNextTags: PublishSubject<Void> { get }
     var openDetail: PublishSubject<ItemViewModel> { get }
     var selectedTag: PublishSubject<TagViewModel> { get }
-//    var deselctedTag: PublishSubject<TagViewModel> { get }
-
 }
 
 protocol MenuViewModelOutput {

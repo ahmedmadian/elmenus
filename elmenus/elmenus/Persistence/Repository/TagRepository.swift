@@ -10,19 +10,22 @@ import Foundation
 import RxSwift
 
 protocol TagRepositoryProtocol {
-    func fetchTags(for pageNumber: Int, completion: @escaping (([Tag]?), Error?) -> ())
     func fetchTags(for pageNumber: Int) -> Observable<[Tag]>
-
+    func save(tags: [OfflineTag], pageNumber: Int) -> Observable<Void>
+    func getTagsfromLocal() -> Observable<[Tag]> 
+    
 }
 
 class TagRepository: TagRepositoryProtocol {
     
     //MARK:- Properties
     private let remoteService: TagsRemoteServiceProtocol
+    private let localService: TagLocalServiceProtocol
     
     // MARK:- Initializers
-    init(remoteService: TagsRemoteServiceProtocol = TagsRemoteService.shared) {
+    init(remoteService: TagsRemoteServiceProtocol = TagsRemoteService.shared, localService: TagLocalServiceProtocol ) {
         self.remoteService = remoteService
+        self.localService = localService
     }
     
     func fetchTags(for pageNumber: Int) -> Observable<[Tag]> {
@@ -30,8 +33,12 @@ class TagRepository: TagRepositoryProtocol {
         return remoteService.fetchTags(with: endPoint, params: String(pageNumber))
     }
     
-    func fetchTags(for pageNumber: Int, completion: @escaping (([Tag]?), Error?) -> ()) {
-        let endPoint = ElmenusEndPoints.tags
-        remoteService.fetchTags(with: endPoint, params: String(pageNumber), completion: completion)
+    func save(tags: [OfflineTag], pageNumber: Int) -> Observable<Void> {
+        let t = Observable.of(tags)
+        return localService.add(tags: tags, for: pageNumber)
+    }
+    
+    func getTagsfromLocal() -> Observable<[Tag]> {
+        return localService.fetchTags()
     }
 }

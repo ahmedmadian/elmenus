@@ -31,10 +31,11 @@ class MenuViewController: UIViewController, BindableType {
     
     func bindViewModel() {
         
+        /// Inputs
         rx.sentMessage(#selector(UIViewController.viewDidAppear(_:)))
             .take(1)
             .map { _ in }
-            .bind(to: viewModel.input.fetchTags).disposed(by: disposeBag)
+            .bind(to: viewModel.input.viewLoaded).disposed(by: disposeBag)
         
         
         viewModel.output.itemsData
@@ -54,14 +55,13 @@ class MenuViewController: UIViewController, BindableType {
             .disposed(by: disposeBag)
         
         collectionView.rx.modelSelected(TagViewModel.self).do(onNext: { (viewModel) in
-            viewModel.isHidden.onNext(false)
-            self.viewModel.input.fetchItems.onNext(())
+            viewModel.isBorderHidden.accept(false)
         }).bind(to: viewModel.input.selectedTag)
             .disposed(by: disposeBag)
         
         collectionView.rx.modelDeselected(TagViewModel.self)
             .subscribe(onNext :{ (viewModel) in
-                viewModel.isHidden.onNext(true)
+                viewModel.isBorderHidden.accept(true)
             }).disposed(by: disposeBag)
         
         

@@ -8,19 +8,20 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 class TagViewModel: TagViewModelType, TagViewModelInput, TagViewModelOutput {
     
     
     //Output
-    var imageURL: Observable<String>
-    var title: Observable<String>
-    var isHidden: BehaviorSubject<Bool>
+    var imageURL: BehaviorSubject<String>
+    var title: BehaviorSubject<String>
+    var isBorderHidden: BehaviorRelay<Bool>
 
 
     init(with tag: Tag) {
-        self.imageURL = Observable.just(tag.photoURL)
-        self.title = Observable.just(tag.tagName)
-        isHidden = BehaviorSubject<Bool>(value: true)
+        self.imageURL = BehaviorSubject<String>(value: tag.photoURL) //Observable.just(tag.photoURL)
+        self.title = BehaviorSubject<String>(value: tag.tagName) //Observable.just(tag.tagName)
+        isBorderHidden = BehaviorRelay<Bool>(value: true)
     }
 }

@@ -13,13 +13,8 @@ import XCoordinator
 
 class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput {
     
-    
-    
-    
-    
     //MARK:-  Input
-    var fetchTags: PublishSubject<Void>
-    var fetchItems: PublishSubject<Void>
+    var viewLoaded: PublishSubject<Void>
     var loadNextTags: PublishSubject<Void>
     var openDetail: PublishSubject<ItemViewModel>
     var selectedTag: PublishSubject<TagViewModel>
@@ -32,66 +27,64 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
     private var router: UnownedRouter<AppStartupRoute>
     private let tagsRepo: TagRepositoryProtocol
     private let itemsRepo: ItemRepositoryProtocol
-  
+    
+    /// will set about those
     let currentPage = BehaviorRelay<Int>(value: 0)
-
+    let currentSerchTerm = BehaviorRelay(value: "")
+    let offlineTags: BehaviorRelay<[Tag]> = BehaviorRelay(value: [])
+    
     init(router: UnownedRouter<AppStartupRoute>, tagsRepo: TagRepositoryProtocol, itemsRepo: ItemRepositoryProtocol) {
-        
+        ///init dependancies
         self.router = router
         self.tagsRepo = tagsRepo
         self.itemsRepo = itemsRepo
         
-        /// Used to start load when view load
-        self.fetchTags = PublishSubject<Void>()
-        
-        self.fetchItems = PublishSubject<Void>()
-        
-        /// Used to fetch next data page
+        /// init Inputs
+        self.viewLoaded = PublishSubject<Void>()
         self.loadNextTags =  PublishSubject<Void>()
-        
         self.openDetail = PublishSubject<ItemViewModel>().asObserver()
-        
         self.selectedTag = PublishSubject<TagViewModel>().asObserver()
         
+        /// init Outputs
         tagsData = BehaviorRelay<[TagViewModel]>(value: [])
         itemsData = BehaviorRelay<[ItemViewModel]>(value: [])
         
-        let moreTags = loadNextTags.debounce( RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
-            .flatMapLatest { _ -> Observable<[TagViewModel]> in
-            self.currentPage.accept(self.currentPage.value + 1)
-             return self.tagsRepo.fetchTags(for: self.currentPage.value + 1)
-                .map { $0.map { TagViewModel(with: $0) }}
-        }
+        let fetchItems = PublishSubject<Void>()
+        //let saveTags = PublishSubject<Void>()
         
-        let loadTags = fetchTags.flatMapLatest { _ -> Observable<[TagViewModel]> in
+        /// operations
+        _ = viewLoaded.flatMapLatest { _ -> Observable<[TagViewModel]> in
             return self.tagsRepo.fetchTags(for: self.currentPage.value + 1).map { $0.map { TagViewModel(with: $0) }}
-        }
-        
-        let loadItems = fetchItems.flatMapLatest { _ -> Observable<[ItemViewModel]> in
-            return self.itemsRepo.fetchItems(for: "2Desert").map { $0.map { ItemViewModel(with: $0) }}
-        }
-        
-        _ = loadTags.subscribe(onNext: { (tags) in
+        }.subscribe(onNext: { (tags) in
             self.tagsData.accept(self.tagsData.value + tags)
         })
         
-        _ = moreTags.subscribe(onNext: { (tags) in
+        _ = loadNextTags.debounce( RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
+            .flatMapLatest { _ -> Observable<[TagViewModel]> in
+                self.currentPage.accept(self.currentPage.value + 1)
+                return self.tagsRepo.fetchTags(for: self.currentPage.value + 1)
+                    .map { $0.map { TagViewModel(with: $0) }}
+        }.subscribe(onNext: { (tags) in
             self.tagsData.accept(self.tagsData.value + tags)
         })
         
-        _ = loadItems.subscribe(onNext: { (items) in
+        _ = fetchItems.flatMapLatest { _ -> Observable<[ItemViewModel]> in
+            return self.itemsRepo.fetchItems(for: self.currentSerchTerm.value).map { $0.map { ItemViewModel(with: $0) }}
+        }.subscribe(onNext: { (items) in
             self.itemsData.accept(self.itemsData.value + items)
+        })
+        
+        _ = selectedTag.subscribe(onNext: {
+            self.currentSerchTerm.accept(try!$0.title.value())
+            fetchItems.onNext(())
         })
         
         _ = openDetail.subscribe(onNext: {router.trigger(.detail($0))})
         
-        _ = selectedTag.subscribe(onNext: {
-            print("\($0.title)")
+        _ = self.tagsData.subscribe(onNext: {
+            let offlineTags = $0.map {OfflineTag(name: try! $0.title.value(), imageURL: try! $0.imageURL.value(), page: Int32(self.currentPage.value))}
+            _ = self.tagsRepo.save(tags: offlineTags, pageNumber: self.currentPage.value)
         })
-        
-//        _ = deselctedTag.subscribe(onNext: {
-//            print("\($0.title)")
-//        })
     }
     
 }

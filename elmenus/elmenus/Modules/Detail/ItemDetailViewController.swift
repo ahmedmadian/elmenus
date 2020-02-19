@@ -27,6 +27,17 @@ class ItemDetailViewController: UIViewController, BindableType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        test()
+    }
+   
+    func test() {
+        //var value = 0
+       let tagRepo = TagRepository(localService: TagLocalService(context: CoreDataManager.shared.managedContext))
+        let res = tagRepo.getTagsfromLocal()
+        print(res)
+        _ = res.subscribe(onNext: {
+            print($0)
+            }).disposed(by: disposeBag)
     }
     
     func bindViewModel() {

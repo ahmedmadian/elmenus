@@ -8,15 +8,15 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 protocol TagViewModelInput {
 }
 
 protocol TagViewModelOutput {
-    var title: Observable<String> {get}
-    var imageURL: Observable<String> {get}
-    var isHidden: BehaviorSubject<Bool> { get }
-
+    var title: BehaviorSubject<String> {get}
+    var imageURL: BehaviorSubject<String> {get}
+    var isBorderHidden: BehaviorRelay<Bool> { get }
 }
 
 protocol TagViewModelType {

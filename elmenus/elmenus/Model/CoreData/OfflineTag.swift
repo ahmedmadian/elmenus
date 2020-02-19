@@ -13,6 +13,7 @@ import RxCoreData
 struct OfflineTag {
     var name: String
     var imageURL: String
+    var page: Int32
 }
 
 extension OfflineTag : Persistable {
@@ -27,17 +28,19 @@ extension OfflineTag : Persistable {
     }
     
     static var primaryAttributeName: String {
-        return "name"
+        return "page"
     }
     
     init(entity: T) {
         name = entity.value(forKey: "name") as! String
         imageURL = entity.value(forKey: "imageURL") as! String
+        page = entity.value(forKey: "page") as! Int32
     }
     
     func update(_ entity: T) {
         entity.setValue(name, forKey: "name")
         entity.setValue(imageURL, forKey: "imageURL")
+        entity.setValue(page, forKey: "page")
         
         do {
             try entity.managedObjectContext?.save()

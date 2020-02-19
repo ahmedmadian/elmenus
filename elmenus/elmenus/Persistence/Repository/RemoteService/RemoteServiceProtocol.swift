@@ -26,10 +26,7 @@ extension RemoteServiceProtocol {
             switch response.result {
             case .success(let data):
                 do {
-                    print(Model.self)
-                    print(String(bytes: data, encoding: .utf8))
                     let object = try JSONDecoder().decode(Model.self, from: data)
-                    print(object)
                     completionHandler(Swift.Result.success(object))
                 }
                 catch {

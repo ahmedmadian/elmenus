@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		DE5363BE23FC489600F1D6D5 /* TagViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5363BD23FC489600F1D6D5 /* TagViewModelProtocol.swift */; };
+		DE5363C123FCC4EA00F1D6D5 /* elmenus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE5363BF23FCC4EA00F1D6D5 /* elmenus.xcdatamodeld */; };
+		DE5363C323FCD22A00F1D6D5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5363C223FCD22A00F1D6D5 /* CoreDataManager.swift */; };
+		DE5363C523FCD28000F1D6D5 /* Error+code.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5363C423FCD28000F1D6D5 /* Error+code.swift */; };
 		DE591B8923FA100500E68BA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591B8823FA100500E68BA7 /* AppDelegate.swift */; };
 		DE591B9023FA100500E68BA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE591B8E23FA100500E68BA7 /* Main.storyboard */; };
 		DE591B9223FA100600E68BA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE591B9123FA100600E68BA7 /* Assets.xcassets */; };
@@ -55,6 +58,9 @@
 		B8FDB06EF1727B77BB2C70A0 /* Pods-elmenus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-elmenus.release.xcconfig"; path = "Target Support Files/Pods-elmenus/Pods-elmenus.release.xcconfig"; sourceTree = "<group>"; };
 		CB1CA6663338A4BACF3DFAE5 /* Pods-elmenus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-elmenus.debug.xcconfig"; path = "Target Support Files/Pods-elmenus/Pods-elmenus.debug.xcconfig"; sourceTree = "<group>"; };
 		DE5363BD23FC489600F1D6D5 /* TagViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModelProtocol.swift; sourceTree = "<group>"; };
+		DE5363C023FCC4EA00F1D6D5 /* elmenus.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = elmenus.xcdatamodel; sourceTree = "<group>"; };
+		DE5363C223FCD22A00F1D6D5 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		DE5363C423FCD28000F1D6D5 /* Error+code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+code.swift"; sourceTree = "<group>"; };
 		DE591B8523FA100500E68BA7 /* elmenus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = elmenus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE591B8823FA100500E68BA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE591B8F23FA100500E68BA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -278,6 +284,7 @@
 				DE591BD123FAAF4E00E68BA7 /* BindableType.swift */,
 				DE591BD323FAB0AB00E68BA7 /* Storyboards.swift */,
 				DE591BE723FABD6700E68BA7 /* UIView+typeName.swift */,
+				DE5363C423FCD28000F1D6D5 /* Error+code.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -341,6 +348,8 @@
 			isa = PBXGroup;
 			children = (
 				DE591C0F23FB525E00E68BA7 /* OfflineTag.swift */,
+				DE5363BF23FCC4EA00F1D6D5 /* elmenus.xcdatamodeld */,
+				DE5363C223FCD22A00F1D6D5 /* CoreDataManager.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -473,10 +482,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE591BDC23FAB5C200E68BA7 /* TagCell.swift in Sources */,
+				DE5363C123FCC4EA00F1D6D5 /* elmenus.xcdatamodeld in Sources */,
 				DE591BA123FA10E600E68BA7 /* Item.swift in Sources */,
 				DE591BAE23FA131E00E68BA7 /* Endpointed.swift in Sources */,
 				DE591BD423FAB0AB00E68BA7 /* Storyboards.swift in Sources */,
 				DE591BC023FA2A3500E68BA7 /* ItemsRemoteService.swift in Sources */,
+				DE5363C323FCD22A00F1D6D5 /* CoreDataManager.swift in Sources */,
 				DE591BCD23FAAE8000E68BA7 /* MenuViewModel.swift in Sources */,
 				DE591B9F23FA10B900E68BA7 /* Tag.swift in Sources */,
 				DE591BEC23FAD8A300E68BA7 /* Temp.swift in Sources */,
@@ -500,6 +511,7 @@
 				DE591BCB23FAAE7000E68BA7 /* MenuViewController.swift in Sources */,
 				DE591BB523FA162100E68BA7 /* ElmenusEndPoints.swift in Sources */,
 				DE591BC623FAAD3300E68BA7 /* AppStartupRoute.swift in Sources */,
+				DE5363C523FCD28000F1D6D5 /* Error+code.swift in Sources */,
 				DE591C0D23FB510100E68BA7 /* TagLocalService.swift in Sources */,
 				DE591BE823FABD6700E68BA7 /* UIView+typeName.swift in Sources */,
 				DE591BC323FAAD0400E68BA7 /* AppStartupCoordinator.swift in Sources */,
@@ -706,6 +718,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DE5363BF23FCC4EA00F1D6D5 /* elmenus.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DE5363C023FCC4EA00F1D6D5 /* elmenus.xcdatamodel */,
+			);
+			currentVersion = DE5363C023FCC4EA00F1D6D5 /* elmenus.xcdatamodel */;
+			path = elmenus.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DE591B7D23FA100500E68BA7 /* Project object */;
 }

@@ -21,7 +21,7 @@ class AppStartupCoordinator: NavigationCoordinator<AppStartupRoute> {
         switch route {
        
         case .menu:
-            let tagRepo = TagRepository()
+            let tagRepo = TagRepository(localService: TagLocalService(context: CoreDataManager.shared.managedContext))
             let itemRepo = ItemRepository()
             let viewModel = MenuViewModel(router: self.unownedRouter,tagsRepo: tagRepo, itemsRepo: itemRepo)
             let controller: MenuViewController  = Storyboards.main.instantiate()!
