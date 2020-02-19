@@ -10,25 +10,17 @@ import Foundation
 import RxSwift
 
 protocol ItemsRemoteServiceProtocol: RemoteServiceProtocol {
-    func fetchItems(with endPoint: Endpointed, params: String, completion: @escaping (([Item]?), Error?) -> ())
      func fetchItems(with endPoint: Endpointed, params: String) -> Observable<[Item]>
 }
 
 
 class ItemsRemoteService: ItemsRemoteServiceProtocol {
-   
-    
-   
     
     //MARK:- Properties
     static let shared = ItemsRemoteService()
     
     // MARK:- Initializers
     private init() {}
-    
-    func fetchItems(with endPoint: Endpointed, params: String, completion: @escaping (([Item]?), Error?) -> ()) {
-        
-    }
     
     func fetchItems(with endPoint: Endpointed, params: String) -> Observable<[Item]> {
         return Observable.create { observer in

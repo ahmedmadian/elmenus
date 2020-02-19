@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 protocol ItemRepositoryProtocol {
-    func fetchItems(for tagName: String, completion: @escaping (([Item]?), Error?) -> ())
+    //func fetchItems(for tagName: String, completion: @escaping (([Item]?), Error?) -> ())
      func fetchItems(for tagName: String) -> Observable<[Item]>
 }
 
@@ -25,15 +25,15 @@ class ItemRepository: ItemRepositoryProtocol {
     }
     
     func fetchItems(for tagName: String) -> Observable<[Item]> {
-//        let endPoint = ElmenusEndPoints.items
-//        return remoteService.fetchItems(with: endPoint, params: tagName)
-        return TempDataSource.shared.fetchItems()
+        let endPoint = ElmenusEndPoints.items
+        let formattedString = tagName.replacingOccurrences(of: " ", with: "")
+        return remoteService.fetchItems(with: endPoint, params: formattedString)
     }
     
-    func fetchItems(for tagName: String, completion: @escaping (([Item]?), Error?) -> ()) {
-        let endPoint = ElmenusEndPoints.items
-        remoteService.fetchItems(with: endPoint, params: tagName, completion: completion)
-    }
+//    func fetchItems(for tagName: String, completion: @escaping (([Item]?), Error?) -> ()) {
+//        let endPoint = ElmenusEndPoints.items
+//        remoteService.fetchItems(with: endPoint, params: tagName, completion: completion)
+//    }
     
     
 }

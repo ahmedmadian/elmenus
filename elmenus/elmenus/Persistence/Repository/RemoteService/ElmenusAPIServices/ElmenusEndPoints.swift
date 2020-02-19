@@ -26,7 +26,7 @@ enum ElmenusEndPoints: String, Endpointed {
         case .tags:
             return .get
         case .items:
-            return .post
+            return .get
         }
     }
 }

@@ -57,6 +57,7 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
             return self.tagsRepo.fetchTags(for: self.currentPage.value + 1).map { $0.map { TagViewModel(with: $0) }}
         }.subscribe(onNext: { (tags) in
             self.tagsData.accept(self.tagsData.value + tags)
+            self.selectedTag.onNext(self.tagsData.value[0])
         })
         
         _ = loadNextTags.debounce( RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
@@ -71,7 +72,7 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
         _ = fetchItems.flatMapLatest { _ -> Observable<[ItemViewModel]> in
             return self.itemsRepo.fetchItems(for: self.currentSerchTerm.value).map { $0.map { ItemViewModel(with: $0) }}
         }.subscribe(onNext: { (items) in
-            self.itemsData.accept(self.itemsData.value + items)
+            self.itemsData.accept(items)
         })
         
         _ = selectedTag.subscribe(onNext: {
