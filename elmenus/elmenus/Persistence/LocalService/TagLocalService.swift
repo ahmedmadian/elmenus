@@ -12,8 +12,7 @@ import CoreData
 import RxCoreData
 
 protocol TagLocalServiceProtocol {
-    //func add(tags: Observable<[Tag]> ) -> Observable<Void>
-    func add(tags: [OfflineTag], for page: Int) -> Observable<Void>
+    func add(tags: [OfflineTag])
     func fetchTags() -> Observable<[Tag]>
 }
 
@@ -34,9 +33,7 @@ class TagLocalService: TagLocalServiceProtocol {
         return res
     }
     
-    func add(tags: [OfflineTag], for page: Int) -> Observable<Void> {
+    func add(tags: [OfflineTag]) {
         _ = tags.map { try? self.managedObjectContext.rx.update($0)}
-        //_ = tags.map {$0.map {try? self.managedObjectContext.rx.update($0)}}
-        return Observable.just(Void())
     }
 }

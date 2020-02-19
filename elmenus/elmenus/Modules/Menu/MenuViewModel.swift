@@ -64,9 +64,10 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
         _ = viewLoaded.flatMapLatest { _ -> Observable<[TagViewModel]> in
             return self.tagsRepo.fetchTags(for: self.currentPage.value + 1)
                 .catchError { error in
-                        _errorMessage.onNext(error.localizedDescription)
-                        return Observable.empty() //// get from cach
-                }.map { $0.map { TagViewModel(with: $0) }}
+                    _errorMessage.onNext(error.localizedDescription)
+                    return self.tagsRepo.fetchLocalTags()
+            }
+            .map { $0.map { TagViewModel(with: $0) }}
         }.subscribe(onNext: { (tags) in
             self.tagsData.accept(self.tagsData.value + tags)
             self.selectedTag.onNext(self.tagsData.value[0])
@@ -78,7 +79,7 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
                 return self.tagsRepo.fetchTags(for: self.currentPage.value + 1)
                     .catchError { error in
                             _errorMessage.onNext(error.localizedDescription)
-                            return Observable.empty()
+                        return self.tagsRepo.fetchLocalTags()
                 }
                 .map { $0.map { TagViewModel(with: $0) }}
         }.subscribe(onNext: { (tags) in
@@ -89,7 +90,7 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
             return self.itemsRepo.fetchItems(for: self.currentSerchTerm.value)
                 .catchError { error in
                     _errorMessage.onNext(error.localizedDescription)
-                    return Observable.empty()
+                    return self.itemsRepo.fetchLocalItems()
             }
             .trackActivity(activityIndicator)
             .map { $0.map { ItemViewModel(with: $0) }}
@@ -106,7 +107,7 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
         
         _ = self.tagsData.subscribe(onNext: {
             let offlineTags = $0.map {OfflineTag(name: try! $0.title.value(), imageURL: try! $0.imageURL.value(), page: Int32(self.currentPage.value))}
-            _ = self.tagsRepo.save(tags: offlineTags, pageNumber: self.currentPage.value)
+            _ = self.tagsRepo.save(tags: offlineTags)
         })
     }
     

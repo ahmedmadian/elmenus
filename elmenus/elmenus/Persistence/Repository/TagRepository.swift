@@ -11,7 +11,8 @@ import RxSwift
 
 protocol TagRepositoryProtocol {
     func fetchTags(for pageNumber: Int) -> Observable<[Tag]>
-    func save(tags: [OfflineTag], pageNumber: Int) -> Observable<Void>
+    func fetchLocalTags() -> Observable<[Tag]>
+    func save(tags: [OfflineTag])
 }
 
 class TagRepository: TagRepositoryProtocol {
@@ -31,7 +32,11 @@ class TagRepository: TagRepositoryProtocol {
         return remoteService.fetchTags(with: endPoint, params: String(pageNumber))
     }
     
-    func save(tags: [OfflineTag], pageNumber: Int) -> Observable<Void> {
-        return localService.add(tags: tags, for: pageNumber)
+    func fetchLocalTags() -> Observable<[Tag]> {
+        return Observable.empty()
+    }
+    
+    func save(tags: [OfflineTag]) {
+        localService.add(tags: tags)
     }
 }

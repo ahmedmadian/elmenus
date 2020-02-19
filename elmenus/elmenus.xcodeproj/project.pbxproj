@@ -50,6 +50,8 @@
 		DE591C1023FB525E00E68BA7 /* OfflineTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591C0F23FB525E00E68BA7 /* OfflineTag.swift */; };
 		DECE2EEA23FDC0DF0008699D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECE2EE923FDC0DF0008699D /* BaseViewController.swift */; };
 		DECE2EEC23FDC72B0008699D /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECE2EEB23FDC72B0008699D /* ActivityIndicator.swift */; };
+		DECE2EEE23FDD63D0008699D /* OfflineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECE2EED23FDD63C0008699D /* OfflineItem.swift */; };
+		DECE2EF023FDD9AC0008699D /* ItemLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECE2EEF23FDD9AC0008699D /* ItemLocalService.swift */; };
 		F808ABACDFFC9FBBAC253274 /* Pods_elmenus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE0A61423E5E7E41712C5538 /* Pods_elmenus.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +104,8 @@
 		DE591C0F23FB525E00E68BA7 /* OfflineTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineTag.swift; sourceTree = "<group>"; };
 		DECE2EE923FDC0DF0008699D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		DECE2EEB23FDC72B0008699D /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		DECE2EED23FDD63C0008699D /* OfflineItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineItem.swift; sourceTree = "<group>"; };
+		DECE2EEF23FDD9AC0008699D /* ItemLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemLocalService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,16 +179,13 @@
 		DE591B8723FA100500E68BA7 /* elmenus */ = {
 			isa = PBXGroup;
 			children = (
-				DE591BF023FB058900E68BA7 /* SupportingFiles */,
 				DE591BC123FAACD800E68BA7 /* Coordinator */,
 				DE591BD023FAAF4300E68BA7 /* Library */,
 				DE591BC723FAAE1200E68BA7 /* Modules */,
 				DE591BB623FA1D9900E68BA7 /* Application */,
 				DE591BA223FA115000E68BA7 /* Persistence */,
 				DE591B9D23FA109700E68BA7 /* Model */,
-				DE591BD523FAB2C500E68BA7 /* App */,
 				DE53641123FDBEAC00F1D6D5 /* Resources */,
-				DE591B9623FA100600E68BA7 /* Info.plist */,
 			);
 			path = elmenus;
 			sourceTree = "<group>";
@@ -231,6 +232,7 @@
 			children = (
 				DE591C0E23FB524300E68BA7 /* CoreData */,
 				DE591C0C23FB510100E68BA7 /* TagLocalService.swift */,
+				DECE2EEF23FDD9AC0008699D /* ItemLocalService.swift */,
 			);
 			path = LocalService;
 			sourceTree = "<group>";
@@ -249,6 +251,8 @@
 		DE591BB623FA1D9900E68BA7 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				DE591B9623FA100600E68BA7 /* Info.plist */,
+				DE591B8823FA100500E68BA7 /* AppDelegate.swift */,
 				DE591BB723FA1DA800E68BA7 /* AppConstants.swift */,
 			);
 			path = Application;
@@ -314,14 +318,6 @@
 			path = Library;
 			sourceTree = "<group>";
 		};
-		DE591BD523FAB2C500E68BA7 /* App */ = {
-			isa = PBXGroup;
-			children = (
-				DE591B8823FA100500E68BA7 /* AppDelegate.swift */,
-			);
-			path = App;
-			sourceTree = "<group>";
-		};
 		DE591BD623FAB57500E68BA7 /* TagCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,13 +339,6 @@
 			path = ItemCell;
 			sourceTree = "<group>";
 		};
-		DE591BF023FB058900E68BA7 /* SupportingFiles */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SupportingFiles;
-			sourceTree = "<group>";
-		};
 		DE591BF523FB2E6A00E68BA7 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,11 +352,20 @@
 		DE591C0E23FB524300E68BA7 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				DE591C0F23FB525E00E68BA7 /* OfflineTag.swift */,
-				DE5363BF23FCC4EA00F1D6D5 /* elmenus.xcdatamodeld */,
+				DECE2EF123FDDA7B0008699D /* Model */,
 				DE5363C223FCD22A00F1D6D5 /* CoreDataManager.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		DECE2EF123FDDA7B0008699D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DECE2EED23FDD63C0008699D /* OfflineItem.swift */,
+				DE591C0F23FB525E00E68BA7 /* OfflineTag.swift */,
+				DE5363BF23FCC4EA00F1D6D5 /* elmenus.xcdatamodeld */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		FF40E4F93BAB4B66AE381BAF /* Frameworks */ = {
@@ -503,6 +501,7 @@
 				DE591BAE23FA131E00E68BA7 /* Endpointed.swift in Sources */,
 				DE591BD423FAB0AB00E68BA7 /* Storyboards.swift in Sources */,
 				DE591BC023FA2A3500E68BA7 /* ItemsRemoteService.swift in Sources */,
+				DECE2EEE23FDD63D0008699D /* OfflineItem.swift in Sources */,
 				DE5363C323FCD22A00F1D6D5 /* CoreDataManager.swift in Sources */,
 				DE591BCD23FAAE8000E68BA7 /* MenuViewModel.swift in Sources */,
 				DE591B9F23FA10B900E68BA7 /* Tag.swift in Sources */,
@@ -531,6 +530,7 @@
 				DE591C0D23FB510100E68BA7 /* TagLocalService.swift in Sources */,
 				DE591BE823FABD6700E68BA7 /* UIView+typeName.swift in Sources */,
 				DE591BC323FAAD0400E68BA7 /* AppStartupCoordinator.swift in Sources */,
+				DECE2EF023FDD9AC0008699D /* ItemLocalService.swift in Sources */,
 				DE591BD223FAAF4E00E68BA7 /* BindableType.swift in Sources */,
 				DE591BE623FABBF500E68BA7 /* ItemViewModel.swift in Sources */,
 				DE591BBA23FA24EC00E68BA7 /* TagsRemoteService.swift in Sources */,
@@ -680,7 +680,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = elmenus/Info.plist;
+				INFOPLIST_FILE = elmenus/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -700,7 +700,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = elmenus/Info.plist;
+				INFOPLIST_FILE = elmenus/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

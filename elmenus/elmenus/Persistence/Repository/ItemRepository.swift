@@ -10,7 +10,9 @@ import Foundation
 import RxSwift
 
 protocol ItemRepositoryProtocol {
-     func fetchItems(for tagName: String) -> Observable<[Item]>
+    func fetchItems(for tagName: String) -> Observable<[Item]>
+    func fetchLocalItems() -> Observable<[Item]>
+    func save(items: [OfflineItem])
 }
 
 class ItemRepository: ItemRepositoryProtocol {
@@ -27,5 +29,13 @@ class ItemRepository: ItemRepositoryProtocol {
         let endPoint = ElmenusEndPoints.items
         let formattedString = tagName.replacingOccurrences(of: " ", with: "")
         return remoteService.fetchItems(with: endPoint, params: formattedString)
+    }
+    
+    func fetchLocalItems() -> Observable<[Item]> {
+        return Observable.empty()
+    }
+    
+    func save(items: [OfflineItem]) {
+        
     }
 }
