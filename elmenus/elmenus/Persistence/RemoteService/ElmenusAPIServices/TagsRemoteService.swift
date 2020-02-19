@@ -11,7 +11,6 @@ import RxSwift
 
 protocol TagsRemoteServiceProtocol: RemoteServiceProtocol {
     func fetchTags(with endPoint: Endpointed, params: String) -> Observable<[Tag]>
-    func fetchTags(with endPoint: Endpointed, params: String, completion: @escaping (([Tag]?), Error?) -> ())
 }
 
 
@@ -25,7 +24,7 @@ class TagsRemoteService: TagsRemoteServiceProtocol {
     
     func fetchTags(with endPoint: Endpointed, params: String) -> Observable<[Tag]> {
         return Observable.create { observer in
-            self.execute(endPoint: endPoint, queryParams: params) { (result: Result<TagsWrapper, RemoteServiceError>) in
+            self.execute(endPoint: endPoint, queryParams: params) { (result: Result<TagsWrapper, Error>) in
                 switch result {
                 case .success(let response):
                     observer.on(.next(response.tags))
@@ -35,17 +34,6 @@ class TagsRemoteService: TagsRemoteServiceProtocol {
                 }
             }
             return Disposables.create()
-        }
-    }
-    
-    func fetchTags(with endPoint: Endpointed, params: String, completion: @escaping (([Tag]?), Error?) -> ()) {
-        self.execute(endPoint: endPoint, queryParams: params) { (result: Result<TagsWrapper, RemoteServiceError>) in
-            switch result {
-            case .success(let response):
-                completion(response.tags, nil)
-            case .failure(let error):
-                completion(nil, error)
-            }
         }
     }
        

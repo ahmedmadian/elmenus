@@ -172,6 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				DE591BA323FA117200E68BA7 /* Repository */,
+				DE591BA923FA11E500E68BA7 /* RemoteService */,
+				DE591BAA23FA11EE00E68BA7 /* LocalService */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -181,8 +183,6 @@
 			children = (
 				DE591BA723FA119B00E68BA7 /* ItemRepository.swift */,
 				DE591BA423FA118800E68BA7 /* TagRepository.swift */,
-				DE591BA923FA11E500E68BA7 /* RemoteService */,
-				DE591BAA23FA11EE00E68BA7 /* LocalService */,
 			);
 			path = Repository;
 			sourceTree = "<group>";

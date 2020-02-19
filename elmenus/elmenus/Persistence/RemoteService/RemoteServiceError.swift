@@ -10,12 +10,12 @@ import Foundation
 
 enum RemoteServiceError: LocalizedError {
     case parsingError
-    case serverError(message: String)
+    case serverError(message: String, code: Int)
     
     var errorDescription: String? {
         switch self {
         case .parsingError: return "JSON Parsing Failure"
-        case .serverError(let message): return "\(message)"
+        case .serverError(let message): return "\(message)<\(code)>"
         }
     }
 }

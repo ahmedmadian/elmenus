@@ -24,7 +24,7 @@ class ItemsRemoteService: ItemsRemoteServiceProtocol {
     
     func fetchItems(with endPoint: Endpointed, params: String) -> Observable<[Item]> {
         return Observable.create { observer in
-            self.execute(endPoint: endPoint, queryParams: params) { (result: Result<ItemsWrapper, RemoteServiceError>) in
+            self.execute(endPoint: endPoint, queryParams: params) { (result: Result<ItemsWrapper, Error>) in
                 switch result {
                 case .success(let response):
                     observer.on(.next(response.items))
