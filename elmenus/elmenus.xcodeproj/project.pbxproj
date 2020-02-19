@@ -48,6 +48,8 @@
 		DE591BFB23FB2EE500E68BA7 /* ItemDetailViewModelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591BFA23FB2EE500E68BA7 /* ItemDetailViewModelProtocols.swift */; };
 		DE591C0D23FB510100E68BA7 /* TagLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591C0C23FB510100E68BA7 /* TagLocalService.swift */; };
 		DE591C1023FB525E00E68BA7 /* OfflineTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE591C0F23FB525E00E68BA7 /* OfflineTag.swift */; };
+		DECE2EEA23FDC0DF0008699D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECE2EE923FDC0DF0008699D /* BaseViewController.swift */; };
+		DECE2EEC23FDC72B0008699D /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECE2EEB23FDC72B0008699D /* ActivityIndicator.swift */; };
 		F808ABACDFFC9FBBAC253274 /* Pods_elmenus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE0A61423E5E7E41712C5538 /* Pods_elmenus.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +100,8 @@
 		DE591BFA23FB2EE500E68BA7 /* ItemDetailViewModelProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModelProtocols.swift; sourceTree = "<group>"; };
 		DE591C0C23FB510100E68BA7 /* TagLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLocalService.swift; sourceTree = "<group>"; };
 		DE591C0F23FB525E00E68BA7 /* OfflineTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineTag.swift; sourceTree = "<group>"; };
+		DECE2EE923FDC0DF0008699D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		DECE2EEB23FDC72B0008699D /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,35 @@
 				B8FDB06EF1727B77BB2C70A0 /* Pods-elmenus.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DE53640F23FDBE1A00F1D6D5 /* BaseService */ = {
+			isa = PBXGroup;
+			children = (
+				DE53641023FDBE3B00F1D6D5 /* Utilities */,
+				DE591BAB23FA12D200E68BA7 /* RemoteServiceProtocol.swift */,
+			);
+			path = BaseService;
+			sourceTree = "<group>";
+		};
+		DE53641023FDBE3B00F1D6D5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				DE591BB123FA14F600E68BA7 /* RemoteServiceError.swift */,
+				DE591BAF23FA135300E68BA7 /* HTTPMethod+HTTPSchema.swift */,
+				DE591BAD23FA131E00E68BA7 /* Endpointed.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		DE53641123FDBEAC00F1D6D5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DE591B8E23FA100500E68BA7 /* Main.storyboard */,
+				DE591B9123FA100600E68BA7 /* Assets.xcassets */,
+				DE591B9323FA100600E68BA7 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		DE591B7C23FA100400E68BA7 = {
@@ -150,9 +183,7 @@
 				DE591BA223FA115000E68BA7 /* Persistence */,
 				DE591B9D23FA109700E68BA7 /* Model */,
 				DE591BD523FAB2C500E68BA7 /* App */,
-				DE591B8E23FA100500E68BA7 /* Main.storyboard */,
-				DE591B9123FA100600E68BA7 /* Assets.xcassets */,
-				DE591B9323FA100600E68BA7 /* LaunchScreen.storyboard */,
+				DE53641123FDBEAC00F1D6D5 /* Resources */,
 				DE591B9623FA100600E68BA7 /* Info.plist */,
 			);
 			path = elmenus;
@@ -161,7 +192,6 @@
 		DE591B9D23FA109700E68BA7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DE591C0E23FB524300E68BA7 /* CoreData */,
 				DE591B9E23FA10B900E68BA7 /* Tag.swift */,
 				DE591BA023FA10E600E68BA7 /* Item.swift */,
 			);
@@ -190,11 +220,8 @@
 		DE591BA923FA11E500E68BA7 /* RemoteService */ = {
 			isa = PBXGroup;
 			children = (
+				DE53640F23FDBE1A00F1D6D5 /* BaseService */,
 				DE591BB323FA15F400E68BA7 /* ElmenusAPIServices */,
-				DE591BAB23FA12D200E68BA7 /* RemoteServiceProtocol.swift */,
-				DE591BAD23FA131E00E68BA7 /* Endpointed.swift */,
-				DE591BAF23FA135300E68BA7 /* HTTPMethod+HTTPSchema.swift */,
-				DE591BB123FA14F600E68BA7 /* RemoteServiceError.swift */,
 			);
 			path = RemoteService;
 			sourceTree = "<group>";
@@ -202,6 +229,7 @@
 		DE591BAA23FA11EE00E68BA7 /* LocalService */ = {
 			isa = PBXGroup;
 			children = (
+				DE591C0E23FB524300E68BA7 /* CoreData */,
 				DE591C0C23FB510100E68BA7 /* TagLocalService.swift */,
 			);
 			path = LocalService;
@@ -280,6 +308,8 @@
 				DE591BD323FAB0AB00E68BA7 /* Storyboards.swift */,
 				DE591BE723FABD6700E68BA7 /* UIView+typeName.swift */,
 				DE5363C423FCD28000F1D6D5 /* Error+code.swift */,
+				DECE2EE923FDC0DF0008699D /* BaseViewController.swift */,
+				DECE2EEB23FDC72B0008699D /* ActivityIndicator.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -468,6 +498,7 @@
 			files = (
 				DE591BDC23FAB5C200E68BA7 /* TagCell.swift in Sources */,
 				DE5363C123FCC4EA00F1D6D5 /* elmenus.xcdatamodeld in Sources */,
+				DECE2EEC23FDC72B0008699D /* ActivityIndicator.swift in Sources */,
 				DE591BA123FA10E600E68BA7 /* Item.swift in Sources */,
 				DE591BAE23FA131E00E68BA7 /* Endpointed.swift in Sources */,
 				DE591BD423FAB0AB00E68BA7 /* Storyboards.swift in Sources */,
@@ -477,6 +508,7 @@
 				DE591B9F23FA10B900E68BA7 /* Tag.swift in Sources */,
 				DE591BB023FA135300E68BA7 /* HTTPMethod+HTTPSchema.swift in Sources */,
 				DE591BF723FB2EA300E68BA7 /* ItemDetailViewController.swift in Sources */,
+				DECE2EEA23FDC0DF0008699D /* BaseViewController.swift in Sources */,
 				DE591BE323FABA1000E68BA7 /* ItemCell.swift in Sources */,
 				DE591B8923FA100500E68BA7 /* AppDelegate.swift in Sources */,
 				DE591BEA23FAD02E00E68BA7 /* ItemsWrapper.swift in Sources */,

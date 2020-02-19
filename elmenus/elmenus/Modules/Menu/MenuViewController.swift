@@ -10,7 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class MenuViewController: UIViewController, BindableType {
+class MenuViewController: BaseViewController, BindableType {
     
     //MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -37,6 +37,11 @@ class MenuViewController: UIViewController, BindableType {
             .map { _ in }
             .bind(to: viewModel.input.viewLoaded).disposed(by: disposeBag)
         
+        viewModel.output.errorMessage
+        .subscribe(onNext: {
+            self.showErrorMessage(text: $0)
+        })
+        .disposed(by: disposeBag)
         
         viewModel.output.itemsData
             .observeOn(MainScheduler.instance)
@@ -70,6 +75,14 @@ class MenuViewController: UIViewController, BindableType {
             let contentWidth = self.collectionView.contentSize.width
             if offsetX > contentWidth - self.collectionView.frame.width{
                 self.viewModel.input.loadNextTags.onNext(())
+            }
+        }).disposed(by: disposeBag)
+        
+        viewModel.output.loading.asObservable().observeOn(MainScheduler.instance).subscribe(onNext: { (isLoading) in
+            if isLoading {
+                self.showLoader()
+            } else {
+                self.hideLoader()
             }
         }).disposed(by: disposeBag)
     }

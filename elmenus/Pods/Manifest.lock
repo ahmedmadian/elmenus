@@ -1,10 +1,5 @@
 PODS:
   - Alamofire (4.9.1)
-  - InfiniteLayout (0.4.2):
-    - InfiniteLayout/Core (= 0.4.2)
-  - InfiniteLayout/CocoaProxy (0.4.2)
-  - InfiniteLayout/Core (0.4.2):
-    - InfiniteLayout/CocoaProxy
   - Kingfisher (5.12.0):
     - Kingfisher/Core (= 5.12.0)
   - Kingfisher/Core (5.12.0)
@@ -17,40 +12,43 @@ PODS:
   - RxRelay (5.0.1):
     - RxSwift (~> 5)
   - RxSwift (5.0.1)
+  - SwiftMessages (7.0.1):
+    - SwiftMessages/App (= 7.0.1)
+  - SwiftMessages/App (7.0.1)
   - XCoordinator (2.0.6):
     - XCoordinator/Core (= 2.0.6)
   - XCoordinator/Core (2.0.6)
 
 DEPENDENCIES:
   - Alamofire
-  - InfiniteLayout
   - Kingfisher
   - RxCocoa
   - RxCoreData
   - RxSwift
+  - SwiftMessages
   - XCoordinator
 
 SPEC REPOS:
   trunk:
     - Alamofire
-    - InfiniteLayout
     - Kingfisher
     - RxCocoa
     - RxCoreData
     - RxRelay
     - RxSwift
+    - SwiftMessages
     - XCoordinator
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  InfiniteLayout: de51cfad9ed480a3e3a0af7d28242d3257c606d9
   Kingfisher: dc6e0f53bb5b12c3e75bedb0e01bbd7a640eea69
   RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
   RxCoreData: 1ed5f83e80facccc90fc054eb7f39a44177de56a
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+  SwiftMessages: b577dc7043be8b299857ab35bb663dbff6483bd0
   XCoordinator: 67772bf463acec002a920ab5eb04f46835dcf123
 
-PODFILE CHECKSUM: dfa30e399f49f4ca5c26102fcfd9e129253cc09a
+PODFILE CHECKSUM: 22d8cdc44e53fb5daf879ad6d736a67b6c1773bf
 
 COCOAPODS: 1.8.4

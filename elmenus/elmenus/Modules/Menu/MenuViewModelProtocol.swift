@@ -20,6 +20,8 @@ protocol MenuViewModelInput {
 protocol MenuViewModelOutput {
     var tagsData: BehaviorRelay<[TagViewModel]> { get }
     var itemsData: BehaviorRelay<[ItemViewModel]> { get }
+    var errorMessage: Observable<String> { get }
+    var loading: Observable<Bool> { get }
 }
 
 protocol MenuViewModelType {

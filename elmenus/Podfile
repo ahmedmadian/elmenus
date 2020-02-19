@@ -8,7 +8,7 @@ def swiftPods
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxCoreData'
-  pod 'InfiniteLayout'
+  pod 'SwiftMessages'
 end
 
 target 'elmenus' do

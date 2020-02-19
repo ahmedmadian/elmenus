@@ -22,6 +22,8 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
     //MARK:- Output
     var tagsData: BehaviorRelay<[TagViewModel]>
     var itemsData: BehaviorRelay<[ItemViewModel]>
+    var errorMessage: Observable<String>
+    var loading: Observable<Bool>
     
     // MARK: - Dependancies
     private var router: UnownedRouter<AppStartupRoute>
@@ -45,6 +47,12 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
         self.openDetail = PublishSubject<ItemViewModel>().asObserver()
         self.selectedTag = PublishSubject<TagViewModel>().asObserver()
         
+        let _errorMessage = PublishSubject<String>()
+        self.errorMessage = _errorMessage.asObservable()
+        
+        let activityIndicator = ActivityIndicator()
+        loading = activityIndicator.asObservable()
+        
         /// init Outputs
         tagsData = BehaviorRelay<[TagViewModel]>(value: [])
         itemsData = BehaviorRelay<[ItemViewModel]>(value: [])
@@ -54,7 +62,11 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
         
         /// operations
         _ = viewLoaded.flatMapLatest { _ -> Observable<[TagViewModel]> in
-            return self.tagsRepo.fetchTags(for: self.currentPage.value + 1).map { $0.map { TagViewModel(with: $0) }}
+            return self.tagsRepo.fetchTags(for: self.currentPage.value + 1)
+                .catchError { error in
+                        _errorMessage.onNext(error.localizedDescription)
+                        return Observable.empty() //// get from cach
+                }.map { $0.map { TagViewModel(with: $0) }}
         }.subscribe(onNext: { (tags) in
             self.tagsData.accept(self.tagsData.value + tags)
             self.selectedTag.onNext(self.tagsData.value[0])
@@ -64,13 +76,23 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
             .flatMapLatest { _ -> Observable<[TagViewModel]> in
                 self.currentPage.accept(self.currentPage.value + 1)
                 return self.tagsRepo.fetchTags(for: self.currentPage.value + 1)
-                    .map { $0.map { TagViewModel(with: $0) }}
+                    .catchError { error in
+                            _errorMessage.onNext(error.localizedDescription)
+                            return Observable.empty()
+                }
+                .map { $0.map { TagViewModel(with: $0) }}
         }.subscribe(onNext: { (tags) in
             self.tagsData.accept(self.tagsData.value + tags)
         })
         
         _ = fetchItems.flatMapLatest { _ -> Observable<[ItemViewModel]> in
-            return self.itemsRepo.fetchItems(for: self.currentSerchTerm.value).map { $0.map { ItemViewModel(with: $0) }}
+            return self.itemsRepo.fetchItems(for: self.currentSerchTerm.value)
+                .catchError { error in
+                    _errorMessage.onNext(error.localizedDescription)
+                    return Observable.empty()
+            }
+            .trackActivity(activityIndicator)
+            .map { $0.map { ItemViewModel(with: $0) }}
         }.subscribe(onNext: { (items) in
             self.itemsData.accept(items)
         })
