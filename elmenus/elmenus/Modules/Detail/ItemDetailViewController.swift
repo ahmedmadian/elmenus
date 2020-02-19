@@ -53,10 +53,9 @@ class ItemDetailViewController: UIViewController, BindableType {
 //MARK: ScrollView Delegate
 extension ItemDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > 300 {
+        if scrollView.contentOffset.y > imageViewHeightConstraint.constant {
             imageViewHeightConstraint.constant = 60
         }
-        
         let valu = 300 - scrollView.contentOffset.y
         if valu >= 60 {
             imageViewHeightConstraint.constant = valu
