@@ -13,10 +13,9 @@ This demo for iOS developer vacancy in elmenus.
 
 ### Dependency Graph
 
-The App originally consists of 4 tiers: <br />
+The App originally consists of 3 tiers: <br />
 
 **Presentation -** Responsible for representing data on screen and handle presentation logic, MVVM design pattern used in this layer. <br />
-**Domain -** Responsible for handling App business UseCases. <br />
 **Persistent -** Responsible for data saving and retrieving from/to data stores,and this is where repository pattern used wich contain both local and remote data sources. <br />
 **Coordinator -** Its responsibility is to build modules with it's dependancies, and handling navigation beween them. <br/>
 
