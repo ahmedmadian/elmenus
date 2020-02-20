@@ -40,8 +40,3 @@ Kingfisher  <br />
 XCoordinator  <br />
 SwiftMessages  <br />
 RxCoreData  <br />
-
-
-### Remote Data Source
-
-News API https://newsapi.org/docs/get-started
