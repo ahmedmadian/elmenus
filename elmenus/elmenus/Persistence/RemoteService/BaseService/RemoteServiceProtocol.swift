@@ -15,14 +15,13 @@ protocol RemoteServiceProtocol {
 }
 
 extension RemoteServiceProtocol {
-
+    
     func execute<Model:Codable>(endPoint: Endpointed, queryParams: String, completionHandler: @escaping (Swift.Result<Model, Error>) -> Void ) {
         
         
         let endpointUrl = "\(endPoint.base)/\(endPoint.path)/\(queryParams)"
-        print(endpointUrl)
         
-       Alamofire.request(endpointUrl, method: Alamofire.HTTPMethod.init(rawValue: endPoint.method.rawValue)!, parameters: nil, headers: nil).responseData { (response) in
+        Alamofire.request(endpointUrl, method: Alamofire.HTTPMethod.init(rawValue: endPoint.method.rawValue)!, parameters: nil, headers: nil).responseData { (response) in
             switch response.result {
             case .success(let data):
                 do {

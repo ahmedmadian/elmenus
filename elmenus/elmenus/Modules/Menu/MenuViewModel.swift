@@ -71,6 +71,7 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
             .flatMapLatest { _ -> Observable<[TagViewModel]> in
                 self.currentPage.accept(self.currentPage.value + 1)
                 return self.tagsRepo.fetchTags(for: self.currentPage.value + 1)
+                    .trackActivity(activityIndicator)
                     .catchError { error in
                         self.errorMessage.onNext(error.localizedDescription)
                         return self.tagsRepo.fetchLocalTags()
@@ -107,7 +108,7 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
         
         _ = loadItems.subscribe(onNext:  {
             if !self.offlineMode  {
-                let offlineItems = $0.map{ OfflineItem(name: $0.name, imageURL: $0.imageURL, itemDescription: $0.description, tagName: self.currentSerchTerm.value)}
+                let offlineItems =  $0.map{ OfflineItem(name: $0.name, imageURL: $0.imageURL, itemDescription: $0.description, tagName: self.currentSerchTerm.value)}
                 self.itemsRepo.save(items: offlineItems)
             }
             self.itemsData.accept($0)

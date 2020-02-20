@@ -78,7 +78,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Dfa-oq-PEf">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dfa-oq-PEf">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="crP-Dy-pPh"/>
@@ -130,12 +130,12 @@
                                 </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31g-Mz-jCn">
-                                <rect key="frame" x="8" y="20" width="40" height="30"/>
+                                <rect key="frame" x="8" y="10" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="QcJ-NM-z9D"/>
-                                    <constraint firstAttribute="width" constant="40" id="UUN-nf-B5T"/>
+                                    <constraint firstAttribute="width" constant="40" id="eEH-v2-iyi"/>
+                                    <constraint firstAttribute="height" constant="40" id="kYg-uz-8jc"/>
                                 </constraints>
-                                <state key="normal" image="back"/>
+                                <state key="normal" image="icons8-back-arrow-64"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -144,11 +144,11 @@
                             <constraint firstItem="8dw-LN-nbL" firstAttribute="bottom" secondItem="d3r-0S-PEt" secondAttribute="bottom" id="G0a-eG-LQz"/>
                             <constraint firstItem="31g-Mz-jCn" firstAttribute="leading" secondItem="d3r-0S-PEt" secondAttribute="leading" constant="8" id="PYs-bo-2uq"/>
                             <constraint firstItem="8dw-LN-nbL" firstAttribute="top" secondItem="Dfa-oq-PEf" secondAttribute="bottom" id="Qdg-iE-fIu"/>
-                            <constraint firstItem="31g-Mz-jCn" firstAttribute="top" secondItem="Dfa-oq-PEf" secondAttribute="top" constant="20" id="Vr7-tB-2Nr"/>
+                            <constraint firstItem="31g-Mz-jCn" firstAttribute="top" secondItem="Dfa-oq-PEf" secondAttribute="top" constant="10" id="Vr7-tB-2Nr"/>
                             <constraint firstItem="8dw-LN-nbL" firstAttribute="leading" secondItem="d3r-0S-PEt" secondAttribute="leading" id="X6k-He-9hZ"/>
                             <constraint firstItem="Dfa-oq-PEf" firstAttribute="leading" secondItem="d3r-0S-PEt" secondAttribute="leading" id="ilS-r8-DOi"/>
                             <constraint firstItem="d3r-0S-PEt" firstAttribute="trailing" secondItem="Dfa-oq-PEf" secondAttribute="trailing" id="rWX-OY-pZv"/>
-                            <constraint firstItem="Dfa-oq-PEf" firstAttribute="top" secondItem="H3y-nP-TF1" secondAttribute="top" id="xIc-w5-syK"/>
+                            <constraint firstItem="Dfa-oq-PEf" firstAttribute="top" secondItem="d3r-0S-PEt" secondAttribute="top" id="xIc-w5-syK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="d3r-0S-PEt"/>
                     </view>
@@ -163,12 +163,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ITi-9f-Hpf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="541" y="244"/>
+            <point key="canvasLocation" x="540.57971014492762" y="243.75000000000003"/>
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="50" height="50"/>
         <image name="elmenus" width="590" height="140"/>
-        <image name="logo" width="196" height="202"/>
+        <image name="icons8-back-arrow-64" width="64" height="64"/>
     </resources>
 </document>

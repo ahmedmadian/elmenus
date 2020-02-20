@@ -25,7 +25,6 @@ class TagLocalService: TagLocalServiceProtocol {
     }
     
     func fetchTags() -> Observable<[Tag]> {
-        //let predicate = NSPredicate(format: "page == %@", "2")
         let offlineTags = managedObjectContext.rx.entities(OfflineTag.self, predicate: nil, sortDescriptors: [NSSortDescriptor(key: "page", ascending: true)]).map {
             $0.map{ ($0)} }
                 
