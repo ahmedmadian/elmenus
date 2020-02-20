@@ -13,14 +13,14 @@ import RxCocoa
 protocol MenuViewModelInput {
     var viewLoaded: PublishSubject<Void> { get }
     var loadNextTags: PublishSubject<Void> { get }
-    var openDetail: PublishSubject<ItemViewModel> { get }
+    var selectedItem: PublishSubject<ItemViewModel> { get }
     var selectedTag: PublishSubject<TagViewModel> { get }
 }
 
 protocol MenuViewModelOutput {
     var tagsData: BehaviorRelay<[TagViewModel]> { get }
     var itemsData: BehaviorRelay<[ItemViewModel]> { get }
-    var errorMessage: Observable<String> { get }
+    var errorMessage: PublishSubject<String> { get }
     var loading: Observable<Bool> { get }
 }
 

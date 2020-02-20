@@ -40,7 +40,7 @@ class MenuViewController: BaseViewController, BindableType {
             .disposed(by: disposeBag)
         
         tableView.rx.modelSelected(ItemViewModel.self)
-            .bind(to: viewModel.input.openDetail)
+            .bind(to: viewModel.input.selectedItem)
             .disposed(by: disposeBag)
         
         collectionView.rx.modelSelected(TagViewModel.self)
