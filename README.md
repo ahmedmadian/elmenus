@@ -33,13 +33,13 @@ Every inner layer doesn't know anything about the outer layer. <br />
 
 ### Pods
 
-**RxSwift**
-**RxCocoa**
-**Alamofire**
-**Kingfisher**
-**XCoordinator**
-**SwiftMessages**
-**RxCoreData**
+**RxSwift** <br />
+**RxCocoa**  <br />
+**Alamofire**  <br />
+**Kingfisher**  <br />
+**XCoordinator**  <br />
+**SwiftMessages**  <br />
+**RxCoreData**  <br />
 
 
 ### Remote Data Source
