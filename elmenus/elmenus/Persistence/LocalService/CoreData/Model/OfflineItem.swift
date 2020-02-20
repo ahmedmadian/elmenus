@@ -11,10 +11,11 @@ import CoreData
 import RxCoreData
 
 struct OfflineItem {
-    var id: Int32
+    //var id: Int32
     var name: String
     var imageURL: String
     var itemDescription: String
+    var tagName: String
 }
 
 extension OfflineItem : Persistable {
@@ -29,21 +30,23 @@ extension OfflineItem : Persistable {
     }
     
     static var primaryAttributeName: String {
-        return "id"
+        return "name"
     }
     
     init(entity: T) {
-        id = entity.value(forKey: "id") as! Int32
+        //id = entity.value(forKey: "id") as! Int32
         name = entity.value(forKey: "name") as! String
         imageURL = entity.value(forKey: "imageURL") as! String
         itemDescription = entity.value(forKey: "itemDescription") as! String
+        tagName = entity.value(forKey: "tagName") as! String
     }
     
     func update(_ entity: T) {
-        entity.setValue(id, forKey: "id")
+        //entity.setValue(id, forKey: "id")
         entity.setValue(name, forKey: "name")
         entity.setValue(imageURL, forKey: "imageURL")
         entity.setValue(itemDescription, forKey: "itemDescription")
+        entity.setValue(tagName, forKey: "tagName")
         
         do {
             try entity.managedObjectContext?.save()

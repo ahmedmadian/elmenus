@@ -11,7 +11,7 @@ import Kingfisher
 
 class ItemCell: UITableViewCell {
     
-    // MARK: Outlet
+    // MARK: - Outlet
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var titlLabel: UILabel!
     @IBOutlet weak var labelContainerView: UIView!

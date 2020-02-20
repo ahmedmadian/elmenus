@@ -13,7 +13,7 @@ import RxCoreData
 
 protocol ItemLocalServiceProtocol {
     func add(items: [OfflineItem])
-    func fetchItems() -> Observable<[Item]>
+    func fetchItems(for tagName: String) -> Observable<[Item]>
 }
 
 class ItemLocalService: ItemLocalServiceProtocol {
@@ -24,8 +24,13 @@ class ItemLocalService: ItemLocalServiceProtocol {
         managedObjectContext = context
     }
     
-    func fetchItems() -> Observable<[Item]> {
-        return Observable.empty()
+    func fetchItems(for tagName: String) -> Observable<[Item]> {
+        let predicate = NSPredicate(format: "tagName == %@", tagName)
+        let offlineItems = managedObjectContext.rx.entities(OfflineItem.self, predicate: predicate, sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)]).map {
+            $0.map{ ($0)} }
+        
+        let res = offlineItems.map {$0.map {Item(name: $0.name, photoUrl: $0.imageURL, description: $0.itemDescription)}}
+        return res
     }
     
     func add(items: [OfflineItem]) {

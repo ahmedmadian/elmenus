@@ -17,11 +17,11 @@ class MenuViewController: BaseViewController, BindableType {
     @IBOutlet weak var collectionView: UICollectionView!
     
 
-    // MARK: - Properties
+    // MARK: - Dependencies
     var viewModel: MenuViewModelType!
     private let disposeBag = DisposeBag()
     
-    // MARK: - Life Cycle Methods
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         congifTableView()
@@ -29,19 +29,45 @@ class MenuViewController: BaseViewController, BindableType {
         self.navigationController?.navigationBar.isHidden = true
     }
     
+    // MARK: - Method
     func bindViewModel() {
         
-        /// Inputs
+        //Inputs
         rx.sentMessage(#selector(UIViewController.viewDidAppear(_:)))
             .take(1)
             .map { _ in }
-            .bind(to: viewModel.input.viewLoaded).disposed(by: disposeBag)
+            .bind(to: viewModel.input.viewLoaded)
+            .disposed(by: disposeBag)
         
+        tableView.rx.modelSelected(ItemViewModel.self)
+            .bind(to: viewModel.input.openDetail)
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.modelSelected(TagViewModel.self)
+            .do(onNext: { (viewModel) in
+                viewModel.isBorderHidden.accept(false)
+            })
+            .bind(to: viewModel.input.selectedTag)
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.modelDeselected(TagViewModel.self)
+            .subscribe(onNext :{ (viewModel) in
+                viewModel.isBorderHidden.accept(true)
+            }).disposed(by: disposeBag)
+        
+        collectionView.rx.didScroll.subscribe(onNext: {
+            let offsetX = self.collectionView.contentOffset.x
+            let contentWidth = self.collectionView.contentSize.width
+            if offsetX > contentWidth - self.collectionView.frame.width{
+                self.viewModel.input.loadNextTags.onNext(())
+            }
+        }).disposed(by: disposeBag)
+        
+        // Outputs
         viewModel.output.errorMessage
-        .subscribe(onNext: {
-            self.showErrorMessage(text: $0)
-        })
-        .disposed(by: disposeBag)
+            .subscribe(onNext: {
+                self.showErrorMessage(text: $0)
+            }).disposed(by: disposeBag)
         
         viewModel.output.itemsData
             .observeOn(MainScheduler.instance)
@@ -54,29 +80,6 @@ class MenuViewController: BaseViewController, BindableType {
             .bind(to: collectionView.rx.items(cellIdentifier: TagCell.typeName, cellType: TagCell.self)) { item, viewModel, cell in
                 cell.bind(to: viewModel)
         }.disposed(by: disposeBag)
-        
-        tableView.rx.modelSelected(ItemViewModel.self)
-            .bind(to: viewModel.input.openDetail)
-            .disposed(by: disposeBag)
-        
-        collectionView.rx.modelSelected(TagViewModel.self).do(onNext: { (viewModel) in
-            viewModel.isBorderHidden.accept(false)
-        }).bind(to: viewModel.input.selectedTag)
-            .disposed(by: disposeBag)
-        
-        collectionView.rx.modelDeselected(TagViewModel.self)
-            .subscribe(onNext :{ (viewModel) in
-                viewModel.isBorderHidden.accept(true)
-            }).disposed(by: disposeBag)
-        
-        
-        collectionView.rx.didScroll.subscribe(onNext: {
-            let offsetX = self.collectionView.contentOffset.x
-            let contentWidth = self.collectionView.contentSize.width
-            if offsetX > contentWidth - self.collectionView.frame.width{
-                self.viewModel.input.loadNextTags.onNext(())
-            }
-        }).disposed(by: disposeBag)
         
         viewModel.output.loading.asObservable().observeOn(MainScheduler.instance).subscribe(onNext: { (isLoading) in
             if isLoading {

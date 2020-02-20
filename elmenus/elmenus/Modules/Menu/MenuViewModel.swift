@@ -43,6 +43,7 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
         
         /// init Inputs
         self.viewLoaded = PublishSubject<Void>()
+        /// Used to fetch next data page
         self.loadNextTags =  PublishSubject<Void>()
         self.openDetail = PublishSubject<ItemViewModel>().asObserver()
         self.selectedTag = PublishSubject<TagViewModel>().asObserver()
@@ -57,45 +58,65 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
         tagsData = BehaviorRelay<[TagViewModel]>(value: [])
         itemsData = BehaviorRelay<[ItemViewModel]>(value: [])
         
+        var offlineMode = false
         let fetchItems = PublishSubject<Void>()
-        //let saveTags = PublishSubject<Void>()
         
         /// operations
-        _ = viewLoaded.flatMapLatest { _ -> Observable<[TagViewModel]> in
+        let loadTags = viewLoaded.flatMapLatest { _ -> Observable<[TagViewModel]> in
             return self.tagsRepo.fetchTags(for: self.currentPage.value + 1)
                 .catchError { error in
+                    offlineMode = true
                     _errorMessage.onNext(error.localizedDescription)
                     return self.tagsRepo.fetchLocalTags()
             }
+            .trackActivity(activityIndicator)
             .map { $0.map { TagViewModel(with: $0) }}
-        }.subscribe(onNext: { (tags) in
-            self.tagsData.accept(self.tagsData.value + tags)
-            self.selectedTag.onNext(self.tagsData.value[0])
-        })
+        }
         
-        _ = loadNextTags.debounce( RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
+        let loadMoreTags = loadNextTags.debounce( RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
             .flatMapLatest { _ -> Observable<[TagViewModel]> in
                 self.currentPage.accept(self.currentPage.value + 1)
                 return self.tagsRepo.fetchTags(for: self.currentPage.value + 1)
                     .catchError { error in
-                            _errorMessage.onNext(error.localizedDescription)
+                        _errorMessage.onNext(error.localizedDescription)
                         return self.tagsRepo.fetchLocalTags()
                 }
                 .map { $0.map { TagViewModel(with: $0) }}
-        }.subscribe(onNext: { (tags) in
-            self.tagsData.accept(self.tagsData.value + tags)
+        }
+        
+        _ = loadTags.subscribe(onNext:  {
+            if !offlineMode  {
+                let offlineTags = $0.map {OfflineTag(name: try! $0.title.value(), imageURL: try! $0.imageURL.value(), page: Int32(self.currentPage.value))}
+                self.tagsRepo.save(tags: offlineTags)
+            }
+            self.tagsData.accept(self.tagsData.value + $0)
+            if $0.count > 0 { self.selectedTag.onNext($0[0])}
         })
         
-        _ = fetchItems.flatMapLatest { _ -> Observable<[ItemViewModel]> in
+        _ = loadMoreTags.subscribe(onNext:  {
+            if !offlineMode  {
+                let offlineTags = $0.map {OfflineTag(name: try! $0.title.value(), imageURL: try! $0.imageURL.value(), page: Int32(self.currentPage.value))}
+                self.tagsRepo.save(tags: offlineTags)
+            }
+            self.tagsData.accept(self.tagsData.value + $0)
+            })
+        
+        let loadItems = fetchItems.flatMapLatest { _ -> Observable<[ItemViewModel]> in
             return self.itemsRepo.fetchItems(for: self.currentSerchTerm.value)
                 .catchError { error in
                     _errorMessage.onNext(error.localizedDescription)
-                    return self.itemsRepo.fetchLocalItems()
+                    return self.itemsRepo.fetchLocalItems(for: self.currentSerchTerm.value)
             }
             .trackActivity(activityIndicator)
             .map { $0.map { ItemViewModel(with: $0) }}
-        }.subscribe(onNext: { (items) in
-            self.itemsData.accept(items)
+        }
+        
+        _ = loadItems.subscribe(onNext:  {
+            if !offlineMode  {
+                let offlineItems = $0.map{ OfflineItem(name: $0.name, imageURL: $0.imageURL, itemDescription: $0.description, tagName: self.currentSerchTerm.value)}
+                self.itemsRepo.save(items: offlineItems)
+            }
+            self.itemsData.accept($0)
         })
         
         _ = selectedTag.subscribe(onNext: {
@@ -105,10 +126,6 @@ class MenuViewModel: MenuViewModelType, MenuViewModelInput, MenuViewModelOutput 
         
         _ = openDetail.subscribe(onNext: {router.trigger(.detail($0))})
         
-        _ = self.tagsData.subscribe(onNext: {
-            let offlineTags = $0.map {OfflineTag(name: try! $0.title.value(), imageURL: try! $0.imageURL.value(), page: Int32(self.currentPage.value))}
-            _ = self.tagsRepo.save(tags: offlineTags)
-        })
     }
     
 }

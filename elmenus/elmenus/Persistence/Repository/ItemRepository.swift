@@ -11,7 +11,7 @@ import RxSwift
 
 protocol ItemRepositoryProtocol {
     func fetchItems(for tagName: String) -> Observable<[Item]>
-    func fetchLocalItems() -> Observable<[Item]>
+    func fetchLocalItems(for tagName: String) -> Observable<[Item]>
     func save(items: [OfflineItem])
 }
 
@@ -19,10 +19,12 @@ class ItemRepository: ItemRepositoryProtocol {
     
     //MARK:- Properties
     private let remoteService: ItemsRemoteServiceProtocol
+    private let localService: ItemLocalServiceProtocol
     
     // MARK:- Initializers
-    init(remoteService: ItemsRemoteServiceProtocol = ItemsRemoteService.shared) {
+    init(remoteService: ItemsRemoteServiceProtocol = ItemsRemoteService.shared, localService: ItemLocalServiceProtocol) {
         self.remoteService = remoteService
+        self.localService = localService
     }
     
     func fetchItems(for tagName: String) -> Observable<[Item]> {
@@ -31,11 +33,11 @@ class ItemRepository: ItemRepositoryProtocol {
         return remoteService.fetchItems(with: endPoint, params: formattedString)
     }
     
-    func fetchLocalItems() -> Observable<[Item]> {
-        return Observable.empty()
+    func fetchLocalItems(for tagName: String) -> Observable<[Item]> {
+        return localService.fetchItems(for: tagName)
     }
     
     func save(items: [OfflineItem]) {
-        
+        localService.add(items: items)
     }
 }

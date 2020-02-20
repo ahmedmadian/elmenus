@@ -20,14 +20,17 @@ class TagCell: UICollectionViewCell, BindableType {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    // MARK: - Depenencies
     var viewModel: TagViewModelType!
     private let disposeBag = DisposeBag()
-
+    
+    // MARK: - LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
         configCellAppearnce()
     }
     
+    // MARK: - Methods
     func bindViewModel() {
         
         viewModel.output.title
@@ -47,8 +50,7 @@ class TagCell: UICollectionViewCell, BindableType {
             .disposed(by: disposeBag)
         
     }
-
-    // MARK: - Methods
+    
     private func configCellAppearnce() {
         containerView.makeRoundedCorners(with: containerView.frame.height / 8)
         borderView.makeRoundedCorners(with: borderView.frame.height/8)
@@ -58,12 +60,12 @@ class TagCell: UICollectionViewCell, BindableType {
     }
     
     private func animateCell() {
-           let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0)
-           self.layer.transform = rotationTransform
-           self.alpha = 0.5
-           UIView.animate(withDuration: 1.0) {
-               self.layer.transform = CATransform3DIdentity
-               self.alpha = 1.0
-           }
-       }
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0)
+        self.layer.transform = rotationTransform
+        self.alpha = 0.5
+        UIView.animate(withDuration: 1.0) {
+            self.layer.transform = CATransform3DIdentity
+            self.alpha = 1.0
+        }
+    }
 }

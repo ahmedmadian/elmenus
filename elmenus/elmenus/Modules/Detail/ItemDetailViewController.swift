@@ -13,7 +13,7 @@ import Kingfisher
 
 class ItemDetailViewController: UIViewController, BindableType {
     
-    //MARK :- Outlet
+    // MARK: - Outlet
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var headeImageView: UIImageView!
@@ -25,10 +25,12 @@ class ItemDetailViewController: UIViewController, BindableType {
     private let disposeBag = DisposeBag()
     var viewModel: ItemDetailViewModelType!
     
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
    
+    // MARK: - Methods
     func bindViewModel() {
         backButton.rx.tap
         .bind(to: viewModel.input.back)

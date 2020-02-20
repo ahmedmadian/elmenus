@@ -9,13 +9,11 @@
 import Foundation
 
 struct Item : Codable {
-    let id : Int
     let name : String
     let photoUrl : String
     let description : String
 
     enum CodingKeys: String, CodingKey {
-        case id = "id"
         case name = "name"
         case photoUrl = "photoUrl"
         case description = "description"

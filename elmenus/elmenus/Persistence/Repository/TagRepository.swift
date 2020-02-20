@@ -33,7 +33,7 @@ class TagRepository: TagRepositoryProtocol {
     }
     
     func fetchLocalTags() -> Observable<[Tag]> {
-        return Observable.empty()
+        return localService.fetchTags()
     }
     
     func save(tags: [OfflineTag]) {
