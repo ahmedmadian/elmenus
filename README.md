@@ -36,8 +36,11 @@ Every inner layer doesn't know anything about the outer layer. <br />
 **RxSwift**
 **RxCocoa**
 **Alamofire**
-**SDWebImage**
+**Kingfisher**
 **XCoordinator**
+**SwiftMessages**
+**RxCoreData**
+
 
 ### Remote Data Source
 
