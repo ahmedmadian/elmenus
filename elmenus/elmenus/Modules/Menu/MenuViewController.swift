@@ -16,6 +16,7 @@ class MenuViewController: BaseViewController, BindableType {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    private var lastSelectedIndex: IndexPath?
 
     // MARK: - Dependencies
     var viewModel: MenuViewModelType!
@@ -38,6 +39,10 @@ class MenuViewController: BaseViewController, BindableType {
             .map { _ in }
             .bind(to: viewModel.input.viewLoaded)
             .disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected.subscribe(onNext: {
+            self.lastSelectedIndex = $0
+        }).disposed(by: disposeBag)
         
         tableView.rx.modelSelected(ItemViewModel.self)
             .bind(to: viewModel.input.selectedItem)
@@ -114,5 +119,19 @@ class MenuViewController: BaseViewController, BindableType {
         flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         collectionView.setCollectionViewLayout(flowLayout, animated: true)
     }
+    
+}
+
+
+extension MenuViewController: NTTransitionHomeViewProtocol {
+    func transitionTableView() -> UITableView {
+        return self.tableView
+    }
+    
+    func latestSelectedIndex() -> IndexPath {
+        if let indexPath = self.lastSelectedIndex { return indexPath}
+        return IndexPath()
+    }
+    
     
 }

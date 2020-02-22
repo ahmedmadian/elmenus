@@ -11,7 +11,7 @@ import RxCocoa
 import RxSwift
 import Kingfisher
 
-class ItemDetailViewController: UIViewController, BindableType {
+class ItemDetailViewController: UIViewController, BindableType, NTTransitionPageViewProtocol{
     
     // MARK: - Outlet
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!

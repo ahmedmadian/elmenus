@@ -40,3 +40,15 @@ class ItemCell: UITableViewCell {
         }
     }
 }
+
+extension ItemCell: NTTansitionSnapShotProvidorProtocol {
+   
+    func snapShotForTransition() -> UIView {
+        let snapShotView = UIImageView(image: self.itemImageView.image ?? UIImage(named: "no-poster"))
+        snapShotView.contentMode = .scaleAspectFill
+        snapShotView.clipsToBounds = true
+        snapShotView.frame = itemImageView.frame
+        return snapShotView
+    }
+    
+}

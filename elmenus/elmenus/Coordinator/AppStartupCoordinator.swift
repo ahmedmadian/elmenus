@@ -32,7 +32,8 @@ class AppStartupCoordinator: NavigationCoordinator<AppStartupRoute> {
             let viewModel = ItemDetailViewModel(router: self.unownedRouter, data: data)
             let controller: ItemDetailViewController = Storyboards.main.instantiate()!
             controller.bind(to: viewModel)
-            return .push(controller)
+            
+            return .push(controller, animation: .sharedElementTransition)
         default:
             return .pop()
         }

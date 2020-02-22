@@ -52,6 +52,8 @@
 		DECE2EEC23FDC72B0008699D /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECE2EEB23FDC72B0008699D /* ActivityIndicator.swift */; };
 		DECE2EEE23FDD63D0008699D /* OfflineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECE2EED23FDD63C0008699D /* OfflineItem.swift */; };
 		DECE2EF023FDD9AC0008699D /* ItemLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECE2EEF23FDD9AC0008699D /* ItemLocalService.swift */; };
+		DEFD35952401AA7300495A02 /* Animation+SharedElementTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD35942401AA7300495A02 /* Animation+SharedElementTransition.swift */; };
+		DEFD35972401AD6000495A02 /* SharedElementTransitionProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD35962401AD6000495A02 /* SharedElementTransitionProtocols.swift */; };
 		F808ABACDFFC9FBBAC253274 /* Pods_elmenus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE0A61423E5E7E41712C5538 /* Pods_elmenus.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +108,8 @@
 		DECE2EEB23FDC72B0008699D /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		DECE2EED23FDD63C0008699D /* OfflineItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineItem.swift; sourceTree = "<group>"; };
 		DECE2EEF23FDD9AC0008699D /* ItemLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemLocalService.swift; sourceTree = "<group>"; };
+		DEFD35942401AA7300495A02 /* Animation+SharedElementTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animation+SharedElementTransition.swift"; sourceTree = "<group>"; };
+		DEFD35962401AD6000495A02 /* SharedElementTransitionProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedElementTransitionProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +274,7 @@
 		DE591BC123FAACD800E68BA7 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				DEFD35932401AA5A00495A02 /* Animation */,
 				DE591BC423FAAD1E00E68BA7 /* Routes */,
 				DE591BC223FAAD0400E68BA7 /* AppStartupCoordinator.swift */,
 			);
@@ -366,6 +371,15 @@
 				DE5363BF23FCC4EA00F1D6D5 /* elmenus.xcdatamodeld */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DEFD35932401AA5A00495A02 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD35942401AA7300495A02 /* Animation+SharedElementTransition.swift */,
+				DEFD35962401AD6000495A02 /* SharedElementTransitionProtocols.swift */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 		FF40E4F93BAB4B66AE381BAF /* Frameworks */ = {
@@ -495,11 +509,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE591BDC23FAB5C200E68BA7 /* TagCell.swift in Sources */,
+				DEFD35952401AA7300495A02 /* Animation+SharedElementTransition.swift in Sources */,
 				DE5363C123FCC4EA00F1D6D5 /* elmenus.xcdatamodeld in Sources */,
 				DECE2EEC23FDC72B0008699D /* ActivityIndicator.swift in Sources */,
 				DE591BA123FA10E600E68BA7 /* Item.swift in Sources */,
 				DE591BAE23FA131E00E68BA7 /* Endpointed.swift in Sources */,
 				DE591BD423FAB0AB00E68BA7 /* Storyboards.swift in Sources */,
+				DEFD35972401AD6000495A02 /* SharedElementTransitionProtocols.swift in Sources */,
 				DE591BC023FA2A3500E68BA7 /* ItemsRemoteService.swift in Sources */,
 				DECE2EEE23FDD63D0008699D /* OfflineItem.swift in Sources */,
 				DE5363C323FCD22A00F1D6D5 /* CoreDataManager.swift in Sources */,
